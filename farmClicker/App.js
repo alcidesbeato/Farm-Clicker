@@ -1,23 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+
+import { StyleSheet, Text, SafeAreaView,StatusBar } from 'react-native';
+import Game from './src/telas/Game'
+
+import {
+  useFonts,
+  MontserratAlternates_400Regular,
+  MontserratAlternates_700Bold,
+} from '@expo-google-fonts/montserrat-alternates';
 
 export default function App() {
+
+  const [fontCarregada] = useFonts({
+    "MontserratAlternatesRegular": MontserratAlternates_400Regular,
+    "MontserratAlternatesBold": MontserratAlternates_700Bold,
+  })
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <Text>Teste</Text>
-      <Text>FARM CLICKER!</Text>
+    <SafeAreaView style = {{flex:1}}>
+      <Game/>
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
