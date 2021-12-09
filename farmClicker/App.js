@@ -20,6 +20,7 @@ export default function App() {
     <SafeAreaView style = {{flex:1}}>
       <Game/>
       <StatusBar style="auto" />
+      <Text> OLA TESTE</Text>
     </SafeAreaView>
   );
 }
