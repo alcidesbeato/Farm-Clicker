@@ -3,6 +3,9 @@ import React from 'react';
 import { StyleSheet, Text, SafeAreaView,StatusBar } from 'react-native';
 import Game from './src/telas/Game'
 
+import 'intl';
+import 'intl/locale-data/jsonp/pt-BR';
+
 import {
   useFonts,
   MontserratAlternates_400Regular,
@@ -19,8 +22,7 @@ export default function App() {
   return (
     <SafeAreaView style = {{flex:1}}>
       <Game/>
-      <StatusBar style="auto" />
-      <Text> OLA TESTE</Text>
+      <StatusBar style="auto"/>
     </SafeAreaView>
   );
 }
