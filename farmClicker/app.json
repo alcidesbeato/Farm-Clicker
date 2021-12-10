@@ -1,14 +1,14 @@
 {
   "expo": {
-    "name": "farmClicker",
+    "name": "FarmClicker",
     "slug": "farmClicker",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/splash.jpeg",
       "resizeMode": "contain",
-      "backgroundColor": "#00BFFF"
+      "backgroundColor": "#FFF"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
