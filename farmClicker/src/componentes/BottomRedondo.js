@@ -17,7 +17,7 @@ const estilos = StyleSheet.create({
     bottomRedondo:{
         position: "absolute",
         width: "100%",
-        height: 78/200 * width,
-        bottom: -2
+        height: 78/285 * width,
+        bottom: -2,
     },
 })
