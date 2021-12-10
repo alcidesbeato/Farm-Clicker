@@ -14,11 +14,6 @@ export default StyleSheet.create({
         padding: 16
 
     },
-    fundoTopo:{
-        width: "100%",
-        height: 150/412 * width,
-        
-    },
     fotoPerfil: {
         position: "absolute",
         marginTop: 25,

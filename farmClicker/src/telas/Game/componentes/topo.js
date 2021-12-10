@@ -4,11 +4,11 @@ import {Image, Text, View} from 'react-native'
 
 import Texto from '../../../componentes/Texto'
 import Fundo from '../../../componentes/Fundo'
+import MadeiraTopo from '../../../componentes/MadeiraTopo'
 
 import estilos from './estiloTopo';
 
 import topo from   '../../../../assets/topo.png';
-import fundo from '../../../../assets/fundo.png';
 import fotoPerfil from '../../../../assets/fotoPerfil.png';
 import dinheiroPago from '../../../../assets/cash.png';
 import dinheiroFazendeiros from '../../../../assets/farmer.png';
@@ -22,7 +22,7 @@ export default function Topo ()
         <View style={{flex:29}}>
             <Fundo/>
             <View>
-                <Image source = {topo}  style={estilos.fundoTopo}/>
+                <MadeiraTopo/>
                 <Image source = {fotoPerfil} style={estilos.fotoPerfil}/>
                 <Text style={estilos.nome}>Lucas</Text>
                 <Text style={estilos.dinheiro}>
