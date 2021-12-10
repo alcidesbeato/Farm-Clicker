@@ -19,19 +19,6 @@ export default StyleSheet.create({
         height: 150/412 * width,
         
     },
-    fundo: {
-        width: "100%",
-        height: 731 / 411 * width,
-        position:"absolute",
-        
-    },
-   fundoBottom:
-    {
-        width: "100%",
-        height: 100/279 * width,
-        position:"absolute",
-
-    },
     fotoPerfil: {
         position: "absolute",
         marginTop: 25,

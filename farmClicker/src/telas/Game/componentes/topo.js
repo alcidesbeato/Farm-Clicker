@@ -1,29 +1,26 @@
 import React from "react";
 
-import {Image,Dimensions,Text,View} from 'react-native'
+import {Image, Text, View} from 'react-native'
 
 import Texto from '../../../componentes/Texto'
+import Fundo from '../../../componentes/Fundo'
 
 import estilos from './estiloTopo';
 
 import topo from   '../../../../assets/topo.png';
 import fundo from '../../../../assets/fundo.png';
-import bottom from '../../../../assets/bottom.png';
 import fotoPerfil from '../../../../assets/fotoPerfil.png';
 import dinheiroPago from '../../../../assets/cash.png';
 import dinheiroFazendeiros from '../../../../assets/farmer.png';
 import removeAd from '../../../../assets/removeAd.png'
-import teste from '../../../../assets/teste.png'
 
-
-const width = Dimensions.get('screen').width;
 
 export default function Topo ()
 {
     return (
     <>
         <View style={{flex:29}}>
-            <Image source = {fundo} style={estilos.fundo}/>
+            <Fundo/>
             <View>
                 <Image source = {topo}  style={estilos.fundoTopo}/>
                 <Image source = {fotoPerfil} style={estilos.fotoPerfil}/>
@@ -45,9 +42,6 @@ export default function Topo ()
                 
             </View>
         </View>
-       <View style={{flex:5}}>
-            <Image source = {bottom}  style={estilos.fundoBottom}/>
-       </View>
     </>
     )
 }

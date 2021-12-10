@@ -2,6 +2,9 @@ import React from 'react';
 
 import { StyleSheet, Text, SafeAreaView,StatusBar } from 'react-native';
 import Game from './src/telas/Game'
+import Shop from './src/telas/Shop/shop'
+import Settings from './src/telas/Settings/settings'
+
 
 import 'intl';
 import 'intl/locale-data/jsonp/pt-BR';
@@ -21,7 +24,7 @@ export default function App() {
 
   return (
     <SafeAreaView style = {{flex:1}}>
-      <Game/>
+      <Shop/>
       <StatusBar style="auto"/>
     </SafeAreaView>
   );
