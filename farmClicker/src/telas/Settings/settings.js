@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, StyleSheet, View } from 'react-native'
+import { Image, StyleSheet, View,Dimensions } from 'react-native'
 
 import Fundo from '../../componentes/Fundo'
 import MadeiraTopo from '../../componentes/MadeiraTopo'
@@ -7,7 +7,11 @@ import BottomRedondo from '../../componentes/BottomRedondo'
 import folhaSettings from '../../../assets/folhaSettings.png'
 import botaoSair from '../../../assets/botaoSair.png'
 
+const width = Dimensions.get('screen').width;
+const height = Dimensions.get('screen').height;
+
 export default function Settings(){
+    
     return <>
     <Fundo/>
     <MadeiraTopo/>
@@ -21,11 +25,11 @@ export default function Settings(){
 
 const estilos = StyleSheet.create({
     folhaSettings: {
-        marginTop: 25,
-        marginLeft: 75,
+        marginTop: (height*0.03),
+        marginLeft: (width*0.20),
     },
     botaoSair: {
         marginTop: 10,
-        marginLeft: 15,
+        marginLeft: 10,
     }
 })

@@ -19,7 +19,7 @@ export default function Topo ()
 {
     return (
     <>
-        <View style={{flex:29}}>
+        <View style={{flex:1}}>
             <Fundo/>
             <View>
                 <MadeiraTopo/>
@@ -39,8 +39,9 @@ export default function Topo ()
                     <Text style={estilos.dinheiroFazendeiroVerde}>50</Text>
                     <Image source={removeAd} style={estilos.removeAd}/>
                 </View>
-                
+           
             </View>
+
         </View>
     </>
     )

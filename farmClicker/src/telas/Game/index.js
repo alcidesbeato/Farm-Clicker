@@ -1,12 +1,28 @@
 import React from 'react';
 
-import Topo from "./componentes/topo";
-import Bottom from './componentes/bottom'
+import { FlatList,SafeAreaView, View, Dimensions } from 'react-native';
 
-export default function FarmClicker()
+import Topo from "./componentes/topo";
+import Bottom from './componentes/bottom';
+import Animais from './Lista/animais'
+
+const width = Dimensions.get('screen').width;
+
+export default function FarmClicker({itens})
 {
     return <>
+            
         <Topo/>
+        <FlatList
+            data={itens.lista}
+            renderItem={Animais}
+            keyExtractor={({nome}) => nome}
+            style={{backgroundColor: 'red', marginTop: '37.5%'}}
+            contentContainerStyle={{
+                paddingBottom: 10 + itens.lista.length * (100/279 * width) / 10
+            }}
+        />
+
         <Bottom/>
     </>
 }
