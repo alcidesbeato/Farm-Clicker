@@ -25,7 +25,7 @@ export default function App() {
 
   return (
     <SafeAreaView style = {{flex:1}}>
-      <Shop/>
+      <Settings/>
       <StatusBar style="auto"/>
     </SafeAreaView>
   );
