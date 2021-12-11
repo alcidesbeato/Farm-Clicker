@@ -18,10 +18,9 @@ export default function FarmClicker({itens})
                 data={itens.lista}
                 renderItem={Animais}
                 keyExtractor={({nome}) => nome}
-                //style={{marginTop: '37.5%'}}
-                //contentContainerStyle={{
-            //     paddingBottom: 10 + itens.lista.length * (100/279 * width) / 10
-            // }}
+                contentContainerStyle={{
+                 paddingBottom: 50,
+             }}
             />
         </View>
         <Bottom/>
@@ -33,7 +32,7 @@ const estilos = StyleSheet.create({
         position: "absolute",
         //backgroundColor: "#715535",
         width: 375,
-        height: 425,
+        height: 475,
         marginTop: width*0.4,
         marginLeft: height*0.012,
     }

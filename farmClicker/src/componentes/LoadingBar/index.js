@@ -1,40 +1,116 @@
+import { StatusBar } from 'expo-status-bar';
 import React from 'react';
+import { Animated,StyleSheet, Text, View, Dimensions } from 'react-native';
 
-import {View,StyleSheet, Text, ProgressBarAndroid} from 'react-native'
+import Texto from '../../componentes/Texto'
 
-export default function App(){    
-    
-    //temp,tempCorrido
-    // const valor = 0;
-
-    // tempCorrido == 0 ? valor = 0 : valor =(tempCorrido / temp);
+const width = Dimensions.get('screen').width;
+const height = Dimensions.get('screen').height;
 
 
+const Progress = ({step,steps,height}) =>
+{
+  const animatedValue = React.useRef(new Animated.Value(-1000)).current;
+  const reactive = React.useRef(new Animated.Value(-1000)).current;
+  const [width, setWidth] = React.useState(0)
 
+  React.useEffect(() =>
+  {
+
+      Animated.timing(animatedValue, {
+        toValue: reactive,
+        duration: 300,
+        useNativeDriver: true,
+
+      }).start();
+
+  }, []);
+
+  React.useEffect(() =>
+  {
+
+    reactive.setValue(-width + (width * step) / steps);
+
+  },[step,width]);
+
+  return<>
+  <Texto style = {styles.texto}>
+    {step}/{steps}
+  </Texto>
+  <View
+  onLayout = {e =>
+    {
+        const newWidth = e.nativeEvent.layout.width;
+
+        setWidth(newWidth);
+    }}
+    style ={
+      {
+        height,
+        backgroundColor:'rgba(0,0,0,0.1)',
+        borderRadius:height,
+        overflow: 'hidden',
+      }
+    }
+  >
+  <Animated.View
+    style={{
+      height,
+      width:'100%',
+      borderRadius:height,
+      backgroundColor: 'rgba(0,0,0,0.5)',
+      position:"absolute",
+      left:0,
+      top:0,
+      transform: [
+        {
+          translateX: animatedValue,
+        }
+        ]
+
+      
+    }}
+  />
+  </View>
+  </>
+}
+export default function App() {
+  const [index,setIndex] = React.useState(0);
+
+  React.useEffect(() =>
+  {
+
+    const interval = setInterval  (()=>
+    {
+      setIndex((index+1) %(10+1))
+    },1000) 
+
+    return () =>
+    {
+      clearInterval(interval);
+    }
+
+  },[index])
   return (
-     <View style={styles.container}>
-       <View style={styles.example,{heigth:100}}>
-        <ProgressBarAndroid
-          styleAttr={'Horizontal'}
-          indeterminate={false}
-          progress={0.5}
-          //style = {{heigth:100,width:100}}
-
-        />
-      </View>
+    <View style={styles.container}>
+      <StatusBar hidden />
+      <Progress step = {index} steps = {10} height={20}/>
     </View>
+    
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    //flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
- 
+    position: "absolute",
+    width: 100,
+    height: 25,
+    marginLeft: width*0.335,
   },
-  example: {
-    marginVertical: 24,
-  },
-
+  texto: {
+    fontSize:16,
+    fontWeight:'bold',
+    marginBottom:5,
+    textAlign: 'center',
+  }
 });

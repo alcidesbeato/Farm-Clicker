@@ -15,9 +15,9 @@ export default function Animais ({item:{nome,imagem, preco, quantidade}})
         <View Key = {nome} style={estilos.item}> 
             <Image source={imagem} style = {estilos.imagem}/>
             <View style={estilos.cadaItem}>
-                {/* <LoadingBar style={{marginLeft: -50}}/> */}
                 <BotaoComprar/>
-                <Texto style={estilos.quantidade}>{quantidade}</Texto>   
+                <Texto style={estilos.quantidade}>{quantidade}</Texto> 
+                <LoadingBar/>  
                 <Texto style={estilos.preco}>{
                         Intl.NumberFormat('pt-BR', {
                         style: 'currency', currency: 'BRL'

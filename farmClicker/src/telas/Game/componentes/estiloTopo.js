@@ -1,5 +1,6 @@
 import { StyleSheet, Dimensions} from 'react-native'
 const width = Dimensions.get('screen').width;
+const height = Dimensions.get('screen').height;
 
 export default StyleSheet.create({
     titulo:
@@ -38,7 +39,7 @@ export default StyleSheet.create({
         lineHeight: 32,
         color: "white",
         marginTop: 25,
-        marginLeft: 95,
+        marginLeft: 90,
     },
     cash: {
         position: "absolute",
@@ -67,8 +68,15 @@ export default StyleSheet.create({
         marginHorizontal: 110,
     },
     removeAd: {
-        marginHorizontal: 65,
-        marginVertical: -65,
-    }
+        marginLeft: width*0.1,
+        marginTop: -(height*0.07),
+    },
+    botao: {
+        //backgroundColor:"green",
+        width:70,
+        height:90,
+        marginLeft: width*0.1,
+        marginTop: -(height*0.07),
+      }
 
 })

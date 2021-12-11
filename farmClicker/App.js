@@ -8,6 +8,7 @@ import Login from './src/telas/Login/login'
 import Farm from './src/telas/Game/index'
 import mocks from './src/mocks/animais'
 import Registrar from './src/telas/Login/registrar'
+import VerAd from './src/telas/Ad/ad'
 
 import 'intl';
 import 'intl/locale-data/jsonp/pt-BR';
@@ -39,6 +40,7 @@ export default function App() {
       {/* <Settings/> */}
       {/* <Shop{...mocks}/> */}
       {/* <Registrar/> */}
+      {/* <VerAd/> */}
       <StatusBar style="auto"/>
     </SafeAreaView>
   );
