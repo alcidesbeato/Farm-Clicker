@@ -29,12 +29,10 @@ export default function App() {
   if(!fontCarregada)
   {
     return <AppLoading/>
-
   }
   return (
     <SafeAreaView style = {{flex:1}}>
-      <Login></Login>
-      {/* <Farm {...mocks}/> */}
+       <Farm {...mocks}/> 
       <StatusBar style="auto"/>
     </SafeAreaView>
   );

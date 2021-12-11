@@ -12,6 +12,7 @@
   "dependencies": {
     "@expo-google-fonts/montserrat-alternates": "^0.2.0",
     "@expo/ngrok": "^2.4.3",
+    "@react-native-community/progress-bar-android": "^1.0.4",
     "expo": "~43.0.2",
     "expo-app-loading": "^1.2.1",
     "expo-font": "~10.0.3",

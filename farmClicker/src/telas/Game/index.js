@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FlatList,SafeAreaView, View, Dimensions } from 'react-native';
+import { FlatList, Dimensions } from 'react-native';
 
 import Topo from "./componentes/topo";
 import Bottom from './componentes/bottom';
@@ -17,7 +17,7 @@ export default function FarmClicker({itens})
             data={itens.lista}
             renderItem={Animais}
             keyExtractor={({nome}) => nome}
-            style={{backgroundColor: 'red', marginTop: '37.5%'}}
+            style={{marginTop: '37.5%'}}
             contentContainerStyle={{
                 paddingBottom: 10 + itens.lista.length * (100/279 * width) / 10
             }}
