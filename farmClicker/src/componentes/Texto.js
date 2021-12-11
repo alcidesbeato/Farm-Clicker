@@ -6,6 +6,10 @@ export default function Texto({children, style}){
 
     if(style?.fontWeight === 'bold'){
         estilo = estilos.textoNegrito;
+    } else {
+        if(style?.fontWeight === '600'){
+            estilo = estilos.textoItalico;
+        }
     }
 
     return <Text style={[style, estilo]}>{children}</Text>
@@ -19,5 +23,9 @@ const estilos = StyleSheet.create({
     textoNegrito: {
         fontFamily: "MontserratAlternatesBold",
         fontWeight: "bold",
+    },
+    textoItalico: {
+        fontFamily: "MontserratAlternatesItalic",
+        fontWeight: "600",
     }
 })

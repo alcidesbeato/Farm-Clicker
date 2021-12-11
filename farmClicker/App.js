@@ -15,6 +15,7 @@ import {
   useFonts,
   MontserratAlternates_400Regular,
   MontserratAlternates_700Bold,
+  MontserratAlternates_600SemiBold_Italic,
 } from '@expo-google-fonts/montserrat-alternates';
 
 import AppLoading from 'expo-app-loading';
@@ -25,6 +26,7 @@ export default function App() {
   const [fontCarregada] = useFonts({
     "MontserratAlternatesRegular": MontserratAlternates_400Regular,
     "MontserratAlternatesBold": MontserratAlternates_700Bold,
+    "MontserratAlternatesItalic": MontserratAlternates_600SemiBold_Italic,
   })
   if(!fontCarregada)
   {
@@ -32,7 +34,9 @@ export default function App() {
   }
   return (
     <SafeAreaView style = {{flex:1}}>
-       <Farm {...mocks}/> 
+        {/*<Farm {...mocks}/>  */}
+       {/*<Settings/>*/}
+       <Shop/>
       <StatusBar style="auto"/>
     </SafeAreaView>
   );

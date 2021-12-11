@@ -5,7 +5,7 @@ import iconeSettings from '../../../../assets/iconeSettings.png'
 import iconeShop from '../../../../assets/iconeShop.png'
 import iconeAd from '../../../../assets/iconeAd.png'
 
-import {Image,View, Dimensions} from 'react-native'
+import {Image,View, Dimensions, TouchableOpacity} from 'react-native'
 
 import Texto from '../../../componentes/Texto'
 
@@ -19,15 +19,21 @@ export default function Bottom(){
             <Image source={bottom} width={'100%'} height={'100%'} style={estilos.fundoBottom} />
             <View style={estilos.viewIcones}>
                 <View style={{flexDirection:"column"}}>
-                    <Image source={iconeSettings} style={estilos.icones}/>
+                    <TouchableOpacity>
+                        <Image source={iconeSettings} style={estilos.icones}/>
+                    </TouchableOpacity>
                     <Texto style={estilos.texto}>Settings</Texto>
                 </View>
                 <View style={{flexDirection:"column"}}>
-                    <Image source={iconeShop} style={estilos.icones}/>
+                    <TouchableOpacity>
+                        <Image source={iconeShop} style={estilos.icones}/>
+                    </TouchableOpacity>
                     <Texto style={estilos.texto}>Shop</Texto>
                 </View>
                 <View style={{flexDirection:"column"}}>
-                    <Image source={iconeAd} style={estilos.icones}/>
+                    <TouchableOpacity>
+                        <Image source={iconeAd} style={estilos.icones}/>
+                    </TouchableOpacity>
                     <Texto style={estilos.texto}>2x Profit!</Texto>
                 </View>
             </View>
