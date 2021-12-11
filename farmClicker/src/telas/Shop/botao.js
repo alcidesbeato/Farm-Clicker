@@ -33,5 +33,6 @@ const estilos = StyleSheet.create({
         textAlign: "center",
         fontSize: 16,
         lineHeight: 32,
+        marginTop: 6,
     }
 })

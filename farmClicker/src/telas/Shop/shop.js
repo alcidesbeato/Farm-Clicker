@@ -22,7 +22,7 @@ const height = Dimensions.get('screen').height;
 
 export default function Shop({itens}){
     return <View style={{flex: 1}}>
-         <Fundo/>
+        <Fundo/>
         <MadeiraTopo/>
         <View style={[{flexDirection: 'row'},{position: 'absolute'}]}>
             <Image source={folhaShop} style={estilos.folhaShop}/>
@@ -35,8 +35,8 @@ export default function Shop({itens}){
             Intl.NumberFormat('pt-BR', {
             style: 'currency', currency: 'BRL'
             }).format(400000)
-        } 
-    </Texto>
+        } </Texto>
+
         <View>
             <Image source={fundoSettings} style={estilos.fundoSettings}/> 
             <View style={estilos.menu}>
