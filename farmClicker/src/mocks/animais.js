@@ -14,7 +14,6 @@ import Lontra from '../../assets/lontra.png'
 
 const lista = 
 {
-
     itens:
     {
         lista: [
@@ -79,9 +78,70 @@ const lista =
                 imagem: Lontra,
                 quantidade: 10,
             }
-        ]    
+        ],
+        listaUpgrade: [
+            {
+                nome: "Chicken Manager!",
+                animal: "Galinha",
+                preco: 10000,
+                imagem: Galinha,
+            },
+            {
+                nome: "Cow Manager!",
+                animal: "Vaca",
+                preco: 15000,
+                imagem: Vaca,
+            },
+            {
+                nome: "Pig Manager!",
+                animal: "Porco",
+                preco: 40000,
+                imagem: Porco,
+            },
+            {
+                nome: "Sheep Manager!",
+                animal: "Ovelha",
+                preco: 95000,
+                imagem: Ovelha,
+            },
+            {
+                nome: "Horse Manager!",
+                animal: "Cavalo",
+                preco: 150000,
+                imagem: Cavalo,
+            },
+            {
+                nome: "Peixe",
+                preco: 320000,
+                imagem: Peixe,
+                animal:"Fish"
+            },
+            {
+                nome: "Abelha",
+                preco: 1500000,
+                imagem: Abelha,
+                animal:"Bee"
+            },
+            {
+                nome: "Shrimp Manager!",
+                animal: "Camarao",
+                preco: 3200000,
+                imagem: Camarao,
+            },
+            {
+                nome: "Girafa",
+                preco: 10000000,
+                imagem: Girafa,
+                animal: "Girafa"
+            },
+            {
+                nome: "Lontra",
+                preco: 1000000000,
+                imagem: Lontra,
+                animal:"Lontra"
+            }
+        ]
     }
-
 }
 
 export default lista;

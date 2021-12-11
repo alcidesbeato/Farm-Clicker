@@ -25,7 +25,9 @@ export default function Settings(){
     <MadeiraTopo/>
     <View style={[{flexDirection: 'row'},{position: 'absolute'}]}>
             <Image source={folhaSettings} style={estilos.folhaSettings}/>
-            <Image source={botaoSair} style={estilos.botaoSair}/>
+            <TouchableOpacity>
+                <Image source={botaoSair} style={estilos.botaoSair}/>
+            </TouchableOpacity>
     </View>
     <Image source={fundoSettings} style={estilos.fundoSettings}/>
     <Texto style={estilos.music}>MUSIC</Texto>

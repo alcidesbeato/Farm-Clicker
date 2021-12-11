@@ -36,7 +36,7 @@ export default function App() {
     <SafeAreaView style = {{flex:1}}>
         {/*<Farm {...mocks}/>  */}
        {/*<Settings/>*/}
-       <Shop/>
+       <Shop{...mocks}/>
       <StatusBar style="auto"/>
     </SafeAreaView>
   );
