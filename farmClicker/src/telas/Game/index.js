@@ -9,13 +9,16 @@ import Animais from './Lista/animais'
 const width = Dimensions.get('screen').width;
 const height = Dimensions.get('screen').height;
 
-export default function FarmClicker({itens})
+import mocks from '../../mocks/animais'
+
+export default function FarmClicker()
 {
+    
     return <>     
         <Topo/>
         <View style={estilos.bichos}>
             <FlatList
-                data={itens.lista}
+                data={mocks.itens.lista}
                 renderItem={Animais}
                 keyExtractor={({nome}) => nome}
                 contentContainerStyle={{

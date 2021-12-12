@@ -6,7 +6,7 @@ import Shop from './src/telas/Shop/shop'
 import Settings from './src/telas/Settings/settings'
 import Login from './src/telas/Login/login'
 import Farm from './src/telas/Game/index'
-import mocks from './src/mocks/animais'
+
 import Registrar from './src/telas/Login/registrar'
 import VerAd from './src/telas/Ad/ad'
 
@@ -22,6 +22,7 @@ import {
 
 import AppLoading from 'expo-app-loading';
 
+import { Routes } from './src/routes'
 
 export default function App() {
 
@@ -36,11 +37,12 @@ export default function App() {
   }
   return (
     <SafeAreaView style = {{flex:1}}>
-      <Farm {...mocks}/>
+      {/* <Farm {...mocks}/> */}
       {/* <Settings/> */}
       {/* <Shop{...mocks}/> */}
       {/* <Registrar/> */}
       {/* <VerAd/> */}
+      <Routes />
       <StatusBar style="auto"/>
     </SafeAreaView>
   );

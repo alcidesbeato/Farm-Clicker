@@ -1,6 +1,8 @@
 import React from 'react'
 import { Image, View, TextInput, StyleSheet, Dimensions} from 'react-native'
 
+import { useNavigation } from '@react-navigation/native';
+
 import FundoInicial from '../../componentes/FundoInicial';
 import Madeira from'../../../assets/madeira.png';
 import titulo from'../../../assets/titulo.png';
@@ -13,7 +15,8 @@ const width = Dimensions.get('screen').width;
 const height = Dimensions.get('screen').height;
 
 
-export default function Login(){
+export default function Registrar(){
+    const navigation = useNavigation()
     return <>
         <FundoInicial/>
         <Image source={titulo} style={estilos.titulo}/>
@@ -25,14 +28,14 @@ export default function Login(){
                     placeholder='Login' style={estilos.textInput}
                 />
                 <TextInput
-                    placeholder='Password' style={[estilos.textInput,{marginTop:15}]}
+                    placeholder='Password' secureTextEntry style={[estilos.textInput,{marginTop:15}]}
                 />
                 <TextInput
-                    placeholder='Confirm Password' style={[estilos.textInput,{marginTop:15}]}
+                    placeholder='Confirm Password' secureTextEntry style={[estilos.textInput,{marginTop:15}]}
                 />
                 <View style={estilos.viewBotao}>  
-                    <Botao valor='Register'/>
-                    <Botao valor='Go Back'  style = {{marginTop:10}}  />
+                    <Botao valor='Register'  acao={()=>navigation.goBack()}/>
+                    <Botao valor='Go Back'  style = {{marginTop:10}}  acao={()=>navigation.goBack()}/>
                 </View>
             </View>
         </View>

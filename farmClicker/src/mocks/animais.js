@@ -1,5 +1,3 @@
-
-
 import Girafa from '../../assets/girafinha.png'
 import Galinha from '../../assets/galinha.png'
 import Vaca from '../../assets/vaquinha.png'

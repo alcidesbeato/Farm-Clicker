@@ -15,17 +15,19 @@ import off from '../../../assets/off.png'
 import Music from '../../../assets/MUSIC.png'
 import Sound from '../../../assets/SOUND.png'
 
+import { useNavigation } from '@react-navigation/native';
+
 const width = Dimensions.get('screen').width;
 const height = Dimensions.get('screen').height;
 
 export default function Settings(){
-    
+    const navigation = useNavigation()
     return <>
     <Fundo/>
     <MadeiraTopo/>
     <View style={[{flexDirection: 'row'},{position: 'absolute'}]}>
             <Image source={folhaSettings} style={estilos.folhaSettings}/>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={()=>navigation.navigate('Farm')}>
                 <Image source={botaoSair} style={estilos.botaoSair}/>
             </TouchableOpacity>
     </View>
@@ -41,7 +43,7 @@ export default function Settings(){
     <TouchableOpacity  style = {estilos.termo}>
         <Image source={Termos} />
     </TouchableOpacity>
-    <TouchableOpacity  style = {estilos.exit}>
+    <TouchableOpacity  style = {estilos.exit} onPress={()=>navigation.navigate('Login')}>
         <Image source={Exit} />
     </TouchableOpacity>
     <Texto style={estilos.playerID}>Player ID: 298129</Texto>

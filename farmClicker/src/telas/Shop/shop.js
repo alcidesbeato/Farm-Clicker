@@ -17,16 +17,19 @@ import fazendeiroMarrom from '../../../assets/FazendeirosMarrom.png'
 import fazendeiroVerde from '../../../assets/FazendeirosVerde.png'
 import Animais from './Upgrade'
 
+import { useNavigation } from '@react-navigation/native';
+
 const width = Dimensions.get('screen').width;
 const height = Dimensions.get('screen').height;
-
+import mocks from '../../mocks/animais'
 export default function Shop({itens}){
+    const navigation = useNavigation()
     return <View style={{flex: 1}}>
         <Fundo/>
         <MadeiraTopo/>
         <View style={[{flexDirection: 'row'},{position: 'absolute'}]}>
             <Image source={folhaShop} style={estilos.folhaShop}/>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={()=>navigation.navigate('Farm')}>
                 <Image source={botaoSair} style={estilos.botaoSair}/>
             </TouchableOpacity>
         </View> 
@@ -53,7 +56,7 @@ export default function Shop({itens}){
                 </View>
                 <View style={estilos.opcoesCompra}>
                     <FlatList
-                    data={itens.listaUpgrade}
+                    data={mocks.itens.listaUpgrade}
                     renderItem={Animais}
                     keyExtractor={({nome}) => nome}
                     />

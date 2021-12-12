@@ -7,6 +7,7 @@ import Botao from './botao'
 const width = Dimensions.get('screen').width;
 const height = Dimensions.get('screen').height;
 
+
 export default function Upgrade ({item:{nome,imagem, preco}})
 {
     return <>
