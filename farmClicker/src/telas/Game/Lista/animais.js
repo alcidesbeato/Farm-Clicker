@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState}  from 'react';
 import {Image, StyleSheet, View, Dimensions} from 'react-native';
 
 import Texto from '../../../componentes/Texto'
@@ -11,20 +11,21 @@ const height = Dimensions.get('screen').height;
 
 export default function Animais ({item:{nome,imagem, preco, quantidade}})
 {
+    const [estado,setEstado] = useState(0);
     return <>
-        <View Key = {nome} style={estilos.item}> 
+          <View Key = {nome} style={estilos.item}> 
             <Image source={imagem} style = {estilos.imagem}/>
             <View style={estilos.cadaItem}>
                 <BotaoComprar/>
                 <Texto style={estilos.quantidade}>{quantidade}</Texto> 
-                <LoadingBar/>  
-                <Texto style={estilos.preco}>{
+                  <LoadingBar setEstado={setEstado()}/>    
+                 <Texto style={estilos.preco}>{
                         Intl.NumberFormat('pt-BR', {
                         style: 'currency', currency: 'BRL'
                         }).format(preco)
                 }</Texto> 
-            </View>
-        </View>
+            </View> 
+        </View>  
     </> 
 }
 

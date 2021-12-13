@@ -16,7 +16,13 @@ import Settings from '../telas/Settings/settings'
 
 
 
-function FarmNavigator() {
+function FarmNavigator({login}) {
+    //console.log(login);
+    const verificaLogin = (login) =>
+    {
+        console.log("foi");
+        login = "garros" ? alert("logado") : alert("erro");
+    }
     const {Navigator, Screen} = createStackNavigator()
     return (
         <Navigator initialRouteName="Farm" screenOptions={{ headerShown: false }} >

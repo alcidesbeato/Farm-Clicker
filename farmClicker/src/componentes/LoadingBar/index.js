@@ -74,7 +74,7 @@ const Progress = ({step,steps,height}) =>
   </View>
   </>
 }
-export default function App() {
+export default function LoadingBar({setEstado}) {
   const [index,setIndex] = React.useState(0);
 
   React.useEffect(() =>
@@ -91,6 +91,10 @@ export default function App() {
     }
 
   },[index])
+  if(index == 10)
+  {
+    setEstado(1);
+  }
   return (
     <View style={styles.container}>
       <StatusBar hidden />
