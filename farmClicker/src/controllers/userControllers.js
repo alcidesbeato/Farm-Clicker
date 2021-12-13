@@ -16,9 +16,9 @@ routes.get('/', async (_req, res) => {
 
 routes.post('/', async  (req, res) => {
     const {body} = req;
-    const  produto = await usuarioService.create(body);
+    const  usuario = await usuarioService.create(body);
 
-    return res.status(201).json(produto);
+    return res.status(201).json(usuario);
 })
 
 routes.put('/:id', async (req, res) => {

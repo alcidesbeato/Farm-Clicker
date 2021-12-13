@@ -16,16 +16,27 @@ import {
     AdMobInterstitial,
   } from 'expo-ads-admob';
 
-  import estilos from './estiloLogin';
+import estilos from './estiloLogin';
+//import UsuariosRepository from '../../db/repositories/usuarioRepository';
 
 var  login ;
 var senha = "garros";
 
+/*const usuario ={
+    name: "Joao Jose",
+    senha: "123123",
+    reais: 10,
+    dolars: 20,
+    fazendeiros: 30
+}*/
+//console.log(usuario);
+//UsuariosRepository.create(usuario)
 
 verificaTexto = (text)=>
 {
     
 }
+
 
 
 export default function Login(){

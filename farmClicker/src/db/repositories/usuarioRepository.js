@@ -10,12 +10,12 @@ class UsuariosRepository{
         //coloca dentro do exclude os campos que vc nao quer que apareça
     }
 
-    async create(currentusuario){
-        return await usuarios.create(currentusuario);
+    async create(currentUsuario){
+        return await usuarios.create(currentUsuario);
     }
 
-    async update(usuarioId, currentusuario){
-        return await usuarios.update(currentusuario,{
+    async update(usuarioId, currentUsuario){
+        return await usuarios.update(currentUsuario,{
             where: {
                 id: usuarioId
             }

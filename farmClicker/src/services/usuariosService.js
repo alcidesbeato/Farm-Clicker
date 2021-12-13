@@ -6,26 +6,26 @@ class UsuariosService{
         return await this.usuariosRepository.list();
     }
 
-    async create(produto){
-        return await this.usuariosRepository.create(produto);
+    async create(usuario){
+        return await this.usuariosRepository.create(usuario);
     }
 
-    async updateById(produtoId, produto){
-        const usuariosExiste = await this.usuariosRepository.getById(produtoId);
-        if(!usuariosExiste){
-            throw new Error('nao existe um produto com esse id');
+    async updateById(usuarioId, usuario){
+        const usuarioExiste = await this.usuariosRepository.getById(usuarioId);
+        if(!usuarioExiste){
+            throw new Error('nao existe um usuario com esse id');
         }
-        await this.usuariosRepository.update(produtoId,produto);
+        await this.usuariosRepository.update(usuarioId,usuario);
 
-        return await this.usuariosRepository.getById(produtoId);
+        return await this.usuariosRepository.getById(usuarioId);
     }
 
-    async deleteById(produtoId){
-        const usuariosExiste = await this.usuariosRepository.getById(produtoId);
-        if(!usuariosExiste){
-            throw new Error('nao existe um produto com esse id');
+    async deleteById(usuarioId){
+        const usuarioExiste = await this.usuariosRepository.getById(usuarioId);
+        if(!usuarioExiste){
+            throw new Error('nao existe um usuario com esse id');
         }
-        await this.usuariosRepository.deleteById(produtoId);
+        await this.usuariosRepository.deleteById(usuarioId);
     }
 
 }
