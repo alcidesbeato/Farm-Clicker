@@ -11,7 +11,7 @@ const width = Dimensions.get('screen').width;
 const height = Dimensions.get('screen').height;
 
 
-export default function Animais ({item:{nome,imagem, preco, quantidade,time}})
+export default function Animais ({item:{nome,imagem, preco, quantidade,time}},{acao})
 {
     const navigation = useNavigation()
     const [estado,setEstado] = useState(true);
@@ -19,20 +19,21 @@ export default function Animais ({item:{nome,imagem, preco, quantidade,time}})
      useEffect(()=>{
         //Chamada de outras funções
         //console.log(login);
-        console.log("aaaaaaa");
+        //console.log("aaaaaaa");
         navigation.addListener('focus',()=>setEstado(estado))
+        
          },[estado, navigation])
 
   
     
      aux = () =>
      {
-         console.log(estado);
+         //console.log(estado);
          setEstado(!estado);
      }
      
-
-     console.log("aqui");
+    // console.log(acao);
+     //console.log("aqui");
     return <>
           <View Key = {nome} style={estilos.item}> 
             <Image source={imagem} style = {estilos.imagem}/>

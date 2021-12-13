@@ -12,7 +12,7 @@ import { useNavigation } from '@react-navigation/native';
 import Botao from '../../componentes/Botao/Botao'
 
 import estilos from './estiloLogin';
-import UsuariosRepository from '../../db/repositories/usuarioRepository';
+///import UsuariosRepository from '../../db/repositories/usuarioRepository';
 var  login ;
 var senha = "garros";
 

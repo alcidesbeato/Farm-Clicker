@@ -1,10 +1,9 @@
 {
   "name": "farmclicker",
   "version": "1.0.0",
-  "description": "",
-  "main": "src/app.js",
+  "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "nodemon src/app.js",
+    "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
@@ -21,10 +20,7 @@
     "expo-app-loading": "^1.2.1",
     "expo-font": "~10.0.3",
     "expo-status-bar": "~1.1.0",
-    "express": "^4.17.1",
     "intl": "^1.2.5",
-    "pg": "^8.7.1",
-    "pg-hstore": "^2.3.4",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-native": "0.64.3",
@@ -32,19 +28,13 @@
     "react-native-intl": "^1.0.0",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "~3.8.0",
-    "react-native-web": "0.17.1",
-    "sequelize": "^6.12.0-beta.3"
+    "react-native-web": "0.17.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@types/react": "~17.0.21",
     "@types/react-native": "~0.64.12",
-    "nodemon": "^2.0.15",
-    "sequelize-cli": "^6.3.0",
     "typescript": "~4.3.5"
   },
-  "private": true,
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "private": true
 }

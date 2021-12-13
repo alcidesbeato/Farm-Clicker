@@ -1,17 +1,17 @@
-const express = require('express');
+// const express = require('express');
 
-const {sequelize} = require('./db/models')
+// const {sequelize} = require('./db/models')
 
-const app = express();
-app.use(express.json());
+// const app = express();
+// app.use(express.json());
 
-sequelize
-    .authenticate()
-    .then(() => console.log('Sequelize on'))
-    .catch((error) => console.log(error));
+// sequelize
+//     .authenticate()
+//     .then(() => console.log('Sequelize on'))
+//     .catch((error) => console.log(error));
 
-const routes = require('./controllers')
+// const routes = require('./controllers')
 
-app.use('/api', routes);
+// app.use('/api', routes);
 
-module.exports = app;
+// module.exports = app;

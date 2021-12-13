@@ -16,7 +16,7 @@ import removeAd from '../../../../assets/removeAd.png'
 const width = Dimensions.get('screen').width;
 const height = Dimensions.get('screen').height;
 
-export default function Topo ()
+export default function Topo ({dinheiro})
 {
     return (
     <>
@@ -30,7 +30,7 @@ export default function Topo ()
                 { 
                     Intl.NumberFormat('pt-BR', {
                     style: 'currency', currency: 'BRL'
-                    }).format(400000)
+                    }).format(dinheiro)
                 }
                 </Texto>
                 <View style={estilos.cash}>

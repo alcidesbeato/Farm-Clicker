@@ -47,7 +47,9 @@ const Progress = ({step,steps,height}) =>
     style ={
       {
         height,
-        backgroundColor:'rgba(0,0,0,0.1)',
+        backgroundColor:"#333333",
+        borderWidth: 2,
+        borderColor: "white",
         borderRadius:height,
         overflow: 'hidden',
       }
@@ -58,7 +60,7 @@ const Progress = ({step,steps,height}) =>
       height,
       width:'100%',
       borderRadius:height,
-      backgroundColor: 'rgba(0,0,0,0.5)',
+      backgroundColor: "#00FF74",
       position:"absolute",
       left:0,
       top:0,
