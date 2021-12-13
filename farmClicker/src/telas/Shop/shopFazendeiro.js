@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, StyleSheet, Text, View,Dimensions,TouchableOpacity,FlatList } from 'react-native'
+import { Image, StyleSheet, Text, View,Dimensions,TouchableOpacity,FlatList, ScrollView } from 'react-native'
 
 import Texto  from '../../componentes/Texto'
 
@@ -16,6 +16,19 @@ import dolarsMarrom from '../../../assets/DolarsMarrom.png'
 import fazendeiroMarrom from '../../../assets/FazendeirosMarrom.png'
 import fazendeiroVerde from '../../../assets/FazendeirosVerde.png'
 import Animais from './Upgrade'
+import Botao from './botao'
+
+import Galinha from '../../../assets/galinha.png';
+import Vaca from '../../../assets/vaquinha.png';
+import Ovelha from '../../../assets/Ovelhinha.png';
+import Porco from '../../../assets/porquinho.png';
+import Girafa from '../../../assets/girafinha.png';
+import Peixe from '../../../assets/Carpa.png';
+import Camarao from '../../../assets/Camarao.png';
+import Lontra from '../../../assets/lontra.png';
+import Abelha from '../../../assets/Abelha.png';
+import Cavalo from '../../../assets/Cavalinho.png';
+
 
 import { useNavigation } from '@react-navigation/native';
 
@@ -45,22 +58,186 @@ export default function Shop({itens}){
             <Image source={fundoSettings} style={estilos.fundoSettings}/> 
             <View style={estilos.menu}>
                 <View style={{flexDirection: "row"}}>
-                    <TouchableOpacity >
-                        <Image source={dinheiroVerde} style={estilos.icones}/>
+                    <TouchableOpacity onPress={()=>navigation.navigate('Shop')}>
+                        <Image source={dinheiroVerde} style={estilos.icones} />
                     </TouchableOpacity>
                     <TouchableOpacity style ={{marginLeft:width*0.20}}>
                         <Image source={fazendeiroMarrom} style={estilos.icones}/>
                     </TouchableOpacity>
-                    <TouchableOpacity style = {{marginLeft:width*0.18}}>
+                    <TouchableOpacity style = {{marginLeft:width*0.18}} onPress={()=>navigation.navigate('ShopDolar')}>
                         <Image source={dolarsVerde} style={estilos.icones}/>
                     </TouchableOpacity>
                 </View>
-                <View style={estilos.opcoesCompra}>
+                {/* 
                     <FlatList
                     data={mocks.itens.upgradeFazendeiro}
                     renderItem={Animais}
                     keyExtractor={({nome}) => nome}
                     />
+                 */}
+                <View style={estilos.opcoesCompra}>
+                <ScrollView style={{marginBottom: 50}}>
+{/*----------------------------------------------------*/}
+<View style={estilos.item}> 
+                    <Image source={Galinha} style = {estilos.imagem}/>
+                    <View style={estilos.cadaItem}>
+                        <View style={estilos.detalhes}>
+                            <Texto style={estilos.nome}>"Chicken 3x!"</Texto>
+                            <Texto style={estilos.preco}>{
+                                Intl.NumberFormat('pt-BR', {
+                                style: 'currency', currency: 'BRL'
+                                }).format(10000)
+                            }</Texto>
+                            <Botao/>  
+                        </View>
+                    </View>
+                </View>
+                {/*----------------------------------------------------*/}
+                {/*----------------------------------------------------*/}
+                <View style={estilos.item}> 
+                    <Image source={Vaca} style = {estilos.imagem}/>
+                    <View style={estilos.cadaItem}>
+                        <View style={estilos.detalhes}>
+                            <Texto style={estilos.nome}>Cow 3x!</Texto>
+                            <Texto style={estilos.preco}>{
+                                Intl.NumberFormat('pt-BR', {
+                                style: 'currency', currency: 'BRL'
+                                }).format(15000)
+                            }</Texto>
+                            <Botao/>  
+                        </View>
+                    </View>
+                </View>
+                {/*----------------------------------------------------*/}
+                {/*----------------------------------------------------*/}
+                <View style={estilos.item}> 
+                    <Image source={Porco} style = {estilos.imagem}/>
+                    <View style={estilos.cadaItem}>
+                        <View style={estilos.detalhes}>
+                            <Texto style={estilos.nome}>Pig 3x!</Texto>
+                            <Texto style={estilos.preco}>{
+                                Intl.NumberFormat('pt-BR', {
+                                style: 'currency', currency: 'BRL'
+                                }).format(40000)
+                            }</Texto>
+                            <Botao/>  
+                        </View>
+                    </View>
+                </View>
+                {/*----------------------------------------------------*/}
+                {/*----------------------------------------------------*/}
+                <View style={estilos.item}> 
+                    <Image source={Ovelha} style = {estilos.imagem}/>
+                    <View style={estilos.cadaItem}>
+                        <View style={estilos.detalhes}>
+                            <Texto style={estilos.nome}>Sheep 3x!</Texto>
+                            <Texto style={estilos.preco}>{
+                                Intl.NumberFormat('pt-BR', {
+                                style: 'currency', currency: 'BRL'
+                                }).format(95000)
+                            }</Texto>
+                            <Botao/>  
+                        </View>
+                    </View>
+                </View>
+                {/*----------------------------------------------------*/}
+                {/*----------------------------------------------------*/}
+                <View style={estilos.item}> 
+                    <Image source={Cavalo} style = {estilos.imagem}/>
+                    <View style={estilos.cadaItem}>
+                        <View style={estilos.detalhes}>
+                            <Texto style={estilos.nome}>Horse 3x!</Texto>
+                            <Texto style={estilos.preco}>{
+                                Intl.NumberFormat('pt-BR', {
+                                style: 'currency', currency: 'BRL'
+                                }).format(150000)
+                            }</Texto>
+                            <Botao/>  
+                        </View>
+                    </View>
+                </View>
+                {/*----------------------------------------------------*/}
+                {/*----------------------------------------------------*/}
+                <View style={estilos.item}> 
+                    <Image source={Peixe} style = {estilos.imagem}/>
+                    <View style={estilos.cadaItem}>
+                        <View style={estilos.detalhes}>
+                            <Texto style={estilos.nome}>Fish 3x!</Texto>
+                            <Texto style={estilos.preco}>{
+                                Intl.NumberFormat('pt-BR', {
+                                style: 'currency', currency: 'BRL'
+                                }).format(320000)
+                            }</Texto>
+                            <Botao/>  
+                        </View>
+                    </View>
+                </View>
+                {/*----------------------------------------------------*/}
+                    {/*----------------------------------------------------*/}
+                <View style={estilos.item}> 
+                    <Image source={Abelha} style = {estilos.imagem}/>
+                    <View style={estilos.cadaItem}>
+                        <View style={estilos.detalhes}>
+                            <Texto style={estilos.nome}>Bee 3x!</Texto>
+                            <Texto style={estilos.preco}>{
+                                Intl.NumberFormat('pt-BR', {
+                                style: 'currency', currency: 'BRL'
+                                }).format(1500000)
+                            }</Texto>
+                            <Botao/>  
+                        </View>
+                    </View>
+                </View>
+                {/*----------------------------------------------------*/}
+                {/*----------------------------------------------------*/}
+                <View style={estilos.item}> 
+                    <Image source={Camarao} style = {estilos.imagem}/>
+                    <View style={estilos.cadaItem}>
+                        <View style={estilos.detalhes}>
+                            <Texto style={estilos.nome}>Shrimp 3x!</Texto>
+                            <Texto style={estilos.preco}>{
+                                Intl.NumberFormat('pt-BR', {
+                                style: 'currency', currency: 'BRL'
+                                }).format(3200000)
+                            }</Texto>
+                            <Botao/>  
+                        </View>
+                    </View>
+                </View>
+                {/*----------------------------------------------------*/}
+                {/*----------------------------------------------------*/}
+                <View style={estilos.item}> 
+                    <Image source={Girafa} style = {estilos.imagem}/>
+                    <View style={estilos.cadaItem}>
+                        <View style={estilos.detalhes}>
+                            <Texto style={estilos.nome}>Giraffe 3x!</Texto>
+                            <Texto style={estilos.preco}>{
+                                Intl.NumberFormat('pt-BR', {
+                                style: 'currency', currency: 'BRL'
+                                }).format(10000000)
+                            }</Texto>
+                            <Botao/>  
+                        </View>
+                    </View>
+                </View>
+                {/*----------------------------------------------------*/}
+                {/*----------------------------------------------------*/}
+                <View style={estilos.item}> 
+                    <Image source={Lontra} style = {estilos.imagem}/>
+                    <View style={estilos.cadaItem}>
+                        <View style={estilos.detalhes}>
+                            <Texto style={estilos.nome}>Otter 3x!</Texto>
+                            <Texto style={estilos.preco}>{
+                                Intl.NumberFormat('pt-BR', {
+                                style: 'currency', currency: 'BRL'
+                                }).format(1000000000)
+                            }</Texto>
+                            <Botao/>  
+                        </View>
+                    </View>
+                </View>
+                {/*----------------------------------------------------*/}
+                </ScrollView>
                 </View>
             </View> 
         </View>
@@ -114,5 +291,54 @@ const estilos = StyleSheet.create({
         width: 300,
         height: 275,
         marginTop: width*0.01,
-    }
+    },
+    item:
+    {
+        backgroundColor: "#BFE1D1",
+        width: 300,
+        height: 65,
+        flexDirection: "column",
+        marginBottom: 10,
+        borderRadius: 25, 
+    },
+    imagem:
+    {
+        position: "absolute",
+        width: 35,
+        height: 35,
+        marginLeft: 10,   
+        marginTop: 10,   
+    },
+    cadaItem: {
+        position: "absolute",
+        //backgroundColor: "grey",
+        width: 175,
+        height: 65,
+        flexDirection: "row",
+        marginLeft: 50,
+        borderRadius: 25, 
+    },
+    detalhes:{
+        flexDirection: "column",
+        position: "absolute",
+        marginLeft: height*0.025,
+    },
+    nome: {
+        position: "absolute",
+        //backgroundColor: "green",
+        //marginBottom: 10,
+        height: 30,
+        fontSize: 16,
+        fontWeight: "bold",
+    },
+    preco: {
+        //backgroundColor: "white",
+        position: "absolute",
+        height: 30,
+        color: "black",
+        fontSize: 16,
+        fontWeight: "normal",
+        marginTop: 30,
+        marginLeft: width*0.02,
+    },
 })

@@ -11,45 +11,37 @@ const width = Dimensions.get('screen').width;
 const height = Dimensions.get('screen').height;
 
 
-export default function Animais ({item:{nome,imagem, preco, quantidade,time}},{acao})
+export default function Animais ({item:{nome,imagem, preco, quantidade,time,acao}})
 {
     const navigation = useNavigation()
     const [estado,setEstado] = useState(true);
+   
 
-     useEffect(()=>{
-        //Chamada de outras funções
-        //console.log(login);
-        //console.log("aaaaaaa");
-        navigation.addListener('focus',()=>setEstado(estado))
-        
-         },[estado, navigation])
 
   
     
-     aux = () =>
-     {
-         //console.log(estado);
-         setEstado(!estado);
-     }
+
      
-    // console.log(acao);
+     
      //console.log("aqui");
-    return <>
+        return <>          
           <View Key = {nome} style={estilos.item}> 
-            <Image source={imagem} style = {estilos.imagem}/>
-            <View style={estilos.cadaItem}>
-                <BotaoComprar/>
-                <Texto style={estilos.quantidade}>{quantidade}</Texto> 
-                  <LoadingBar  time={time} setEstado={()=>aux()} />    
-                 <Texto style={estilos.preco}>{
-                        Intl.NumberFormat('pt-BR', {
-                        style: 'currency', currency: 'BRL'
-                        }).format(preco)
-                }</Texto> 
-            </View> 
-        </View>  
-    </> 
-}
+                <Image source={imagem} style = {estilos.imagem}/>
+                <View style={estilos.cadaItem}>
+                    <BotaoComprar dinheiro={dinheiro}/>
+                    <Texto style={estilos.quantidade}>{quantidade}</Texto> 
+                    <LoadingBar  time={time} setEstado={()=>aux()} />    
+                    <Texto style={estilos.preco}>{
+                            Intl.NumberFormat('pt-BR', {
+                            style: 'currency', currency: 'BRL'
+                            }).format(preco)
+                    }</Texto> 
+                </View> 
+            </View>  
+        </>
+
+    }
+
 
 const estilos = StyleSheet.create
 ({

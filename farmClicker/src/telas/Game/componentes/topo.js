@@ -16,7 +16,7 @@ import removeAd from '../../../../assets/removeAd.png'
 const width = Dimensions.get('screen').width;
 const height = Dimensions.get('screen').height;
 
-export default function Topo ({dinheiro})
+export default function Topo ({dinheiro,flag,acao})
 {
     return (
     <>
@@ -26,13 +26,13 @@ export default function Topo ({dinheiro})
                 <MadeiraTopo/>
                 <Image source = {fotoPerfil} style={estilos.fotoPerfil}/>
                 <Texto style={estilos.nome}>Lucas</Texto>
-                <Texto style={estilos.dinheiro}>
+                 <Texto style={estilos.dinheiro}>
                 { 
                     Intl.NumberFormat('pt-BR', {
                     style: 'currency', currency: 'BRL'
                     }).format(dinheiro)
                 }
-                </Texto>
+                </Texto> 
                 <View style={estilos.cash}>
                     <Image source={dinheiroFazendeiros} style={estilos.dinheiroExtra}/>
                     <Texto style={estilos.dinheiroPagoAmarelo}>100</Texto>

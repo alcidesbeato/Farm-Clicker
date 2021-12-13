@@ -4,6 +4,7 @@ import { TouchableOpacity, StyleSheet,Dimensions} from 'react-native';
 
 import Texto from '../../componentes/Texto'
 
+
 const width = Dimensions.get('screen').width;
 const height = Dimensions.get('screen').height;
 
