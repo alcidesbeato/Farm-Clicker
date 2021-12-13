@@ -1,24 +1,45 @@
-import React,{useState}  from 'react';
+import React,{useState,useEffect}  from 'react';
 import {Image, StyleSheet, View, Dimensions} from 'react-native';
-
+import { useNavigation } from '@react-navigation/native';
 import Texto from '../../../componentes/Texto'
 import BotaoComprar from '../componentes/botaoComprar'
 import LoadingBar from '../../../componentes/LoadingBar/index'
+
+
 
 const width = Dimensions.get('screen').width;
 const height = Dimensions.get('screen').height;
 
 
-export default function Animais ({item:{nome,imagem, preco, quantidade}})
+export default function Animais ({item:{nome,imagem, preco, quantidade,time}})
 {
-    const [estado,setEstado] = useState(0);
+    const navigation = useNavigation()
+    const [estado,setEstado] = useState(true);
+
+     useEffect(()=>{
+        //Chamada de outras funções
+        //console.log(login);
+        console.log("aaaaaaa");
+        navigation.addListener('focus',()=>setEstado(estado))
+         },[estado, navigation])
+
+  
+    
+     aux = () =>
+     {
+         console.log(estado);
+         setEstado(!estado);
+     }
+     
+
+     console.log("aqui");
     return <>
           <View Key = {nome} style={estilos.item}> 
             <Image source={imagem} style = {estilos.imagem}/>
             <View style={estilos.cadaItem}>
                 <BotaoComprar/>
                 <Texto style={estilos.quantidade}>{quantidade}</Texto> 
-                  <LoadingBar setEstado={()=>setEstado}/>    
+                  <LoadingBar  time={time} setEstado={()=>aux()} />    
                  <Texto style={estilos.preco}>{
                         Intl.NumberFormat('pt-BR', {
                         style: 'currency', currency: 'BRL'

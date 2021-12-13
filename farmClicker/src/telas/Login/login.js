@@ -35,7 +35,7 @@ export default function Login(){
          //console.log(login);
          navigation.addListener('focus',()=>setLoad(!Load))
          },[Load, navigation])
-
+         
     return <>
         <FundoInicial/>
         <Image source={titulo} style={estilos.titulo}/>

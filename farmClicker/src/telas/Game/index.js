@@ -8,8 +8,9 @@ import Animais from './Lista/animais'
 
 const width = Dimensions.get('screen').width;
 const height = Dimensions.get('screen').height;
-
+import { useNavigation } from '@react-navigation/native';
 import mocks from '../../mocks/animais'
+import LoadingBar from '../../componentes/LoadingBar/index'
 
 export default function FarmClicker()
 {
@@ -25,6 +26,7 @@ export default function FarmClicker()
                  paddingBottom: 50,
              }}
             />
+           
         </View>
         <Bottom/>
     </>

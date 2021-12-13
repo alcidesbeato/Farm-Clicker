@@ -16,7 +16,7 @@ const verificaLogin = (text) =>
 //
 export default function Botao({valor,style,acao,acao2}) {
 
-  console.log(acao2)
+  
   //console.log(acao2);
   var teste = verificaLogin(acao2);
   //acao2 == "garros"? valor=1 : valor = 2;

@@ -20,7 +20,7 @@ const Progress = ({step,steps,height}) =>
       Animated.timing(animatedValue, {
         toValue: reactive,
         duration: 300,
-        useNativeDriver: true,
+        useNativeDriver: false,
 
       }).start();
 
@@ -74,7 +74,7 @@ const Progress = ({step,steps,height}) =>
   </View>
   </>
 }
-export default function LoadingBar({setEstado}) {
+export default function LoadingBar({setEstado,time}) {
   const [index,setIndex] = React.useState(0);
 
   React.useEffect(() =>
@@ -82,7 +82,7 @@ export default function LoadingBar({setEstado}) {
 
     const interval = setInterval  (()=>
     {
-      setIndex((index+1) %(10+1))
+      setIndex((index+1) %(time+1))
     },1000) 
 
     return () =>
@@ -91,14 +91,17 @@ export default function LoadingBar({setEstado}) {
     }
 
   },[index])
-  if(index == 10)
+
+  if(index == time)
   {
-    setEstado(1);
+    //console.log("aqui");
+    setEstado();
+    
   }
   return (
     <View style={styles.container}>
       <StatusBar hidden />
-      <Progress step = {index} steps = {10} height={20}/>
+      <Progress step = {index} steps = {time} height={20}/>
     </View>
     
   );

@@ -20,48 +20,56 @@ const lista =
                 preco: 5,
                 imagem: Galinha,
                 quantidade: 100,
+                time:10
             },
             {
                 nome: "Vaca",
                 preco: 40,
                 imagem: Vaca,
                 quantidade: 90,
+                time:25
             },
             {
                 nome: "Porco",
                 preco: 100,
                 imagem: Porco,
                 quantidade: 80,
+                time:35
             },
             {
                 nome: "Ovelha",
                 preco: 300,
                 imagem: Ovelha,
                 quantidade: 70,
+                time:95
             },
             {
                 nome: "Cavalo",
                 preco: 750,
                 imagem: Cavalo,
                 quantidade: 60,
+                time:110
             },
             {
                 nome: "Peixe",
                 preco: 2000,
                 imagem: Peixe,
                 quantidade: 50,
+                time:300
             },
             {
                 nome: "Abelha",
                 preco: 5000,
                 imagem: Abelha,
                 quantidade: 40,
+                time:500
             },
             {
                 nome: "Camarao",
                 preco: 10000,
                 imagem: Camarao,
                 quantidade: 30,
+                time:800
 
             },
             {
@@ -69,12 +77,14 @@ const lista =
                 preco: 20000,
                 imagem: Girafa,
                 quantidade: 20,
+                time:1500
             },
             {
                 nome: "Lontra",
                 preco: 100000,
                 imagem: Lontra,
                 quantidade: 10,
+                time:25000
             }
         ],
         listaUpgrade: [
