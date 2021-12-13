@@ -12,6 +12,7 @@ import { useNavigation } from '@react-navigation/native';
 import Botao from '../../componentes/Botao/Botao'
 
 import estilos from './estiloLogin';
+import UsuariosRepository from '../../db/repositories/usuarioRepository';
 var  login ;
 var senha = "garros";
 
@@ -20,9 +21,10 @@ verificaTexto = (text)=>
     
 }
 
+
 export default function Login(){
     const navigation = useNavigation()
-    
+
     const [Load,setLoad] = useState(true);
     setLogin = (text) =>
     {
