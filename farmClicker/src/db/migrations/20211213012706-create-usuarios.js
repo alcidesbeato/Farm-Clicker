@@ -11,6 +11,18 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
+      senha: {
+        type: Sequelize.STRING
+      },
+      reais: {
+        type: Sequelize.INTEGER
+      },
+      dolars: {
+        type: Sequelize.INTEGER
+      },
+      fazendeiros: {
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
