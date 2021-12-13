@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from 'react'
 
-import { Image, View, TextInput, Alert} from 'react-native'
+import { Image, View, TextInput, Alert, Button, StyleSheet} from 'react-native'
 
 import FundoInicial from '../../componentes/FundoInicial'
 import Madeira from'../../../assets/madeira.png';
@@ -11,10 +11,16 @@ import { useNavigation } from '@react-navigation/native';
 
 import Botao from '../../componentes/Botao/Botao'
 
-import estilos from './estiloLogin';
-///import UsuariosRepository from '../../db/repositories/usuarioRepository';
+import {
+    AdMobBanner,
+    AdMobInterstitial,
+  } from 'expo-ads-admob';
+
+  import estilos from './estiloLogin';
+
 var  login ;
 var senha = "garros";
+
 
 verificaTexto = (text)=>
 {
@@ -38,6 +44,22 @@ export default function Login(){
          navigation.addListener('focus',()=>setLoad(!Load))
          },[Load, navigation])
          
+
+    useEffect(()=>{
+
+        async function loadAd(){
+            AdMobInterstitial.setAdUnitID('ca-app-pub-3940256099942544/1033173712');
+            InterstitalAd();
+        }
+        loadAd();
+        
+    }, []);
+        
+        async function InterstitalAd(){
+            await AdMobInterstitial.requestAdAsync({servePersonalizedAds: true});
+            await AdMobInterstitial.showAdAsync();
+        }   
+
     return <>
         <FundoInicial/>
         <Image source={titulo} style={estilos.titulo}/>
@@ -45,6 +67,17 @@ export default function Login(){
             <Image source={Madeira} style={estilos.madeira}/>
             <Image source={iconeLogin} style={estilos.iconeLogin}/>
             <View style={estilos.textos}>
+
+                <View style={styles.container}>    
+                    <AdMobBanner
+                        bannerSize="fullBanner"
+                        adUnitID="ca-app-pub-3940256099942544/6300978111"
+                        setTestDeviceIDAsync
+                        servePersonalizedAds // true or false
+                        onDidFailToReceiveAdWithError={this.bannerError} 
+                        />
+                </View>
+
                 <TextInput
                     placeholder='Login' 
                     style={estilos.textInput}
@@ -67,4 +100,13 @@ export default function Login(){
     </>
 }
 
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#fff',
+      alignItems: 'center',
+      justifyContent: 'flex-end',
+      marginTop:30,
+    },
+  });
 
