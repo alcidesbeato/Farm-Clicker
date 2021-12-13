@@ -19,7 +19,7 @@ export default function FarmClicker()
         <View style={estilos.bichos}>
             <FlatList
                 data={mocks.itens.lista}
-                renderItem={Animais}
+                renderItem={({item})=><Animais item={item}/>}
                 keyExtractor={({nome}) => nome}
                 contentContainerStyle={{
                  paddingBottom: 50,

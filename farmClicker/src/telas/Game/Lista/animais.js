@@ -18,7 +18,7 @@ export default function Animais ({item:{nome,imagem, preco, quantidade}})
             <View style={estilos.cadaItem}>
                 <BotaoComprar/>
                 <Texto style={estilos.quantidade}>{quantidade}</Texto> 
-                  <LoadingBar setEstado={setEstado()}/>    
+                  <LoadingBar setEstado={()=>setEstado}/>    
                  <Texto style={estilos.preco}>{
                         Intl.NumberFormat('pt-BR', {
                         style: 'currency', currency: 'BRL'
