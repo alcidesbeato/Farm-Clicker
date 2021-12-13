@@ -1,6 +1,6 @@
-const UsuariosRepository = require("../db/repositories/usuariosRepository");
+const UsuariosRepository = require("../db/repositories/usuarioRepository");
 
-class usuariosService{
+class UsuariosService{
     usuariosRepository = new UsuariosRepository();
     async list(){
         return await this.usuariosRepository.list();

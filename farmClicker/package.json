@@ -1,9 +1,10 @@
 {
   "name": "farmclicker",
   "version": "1.0.0",
-  "main": "node_modules/expo/AppEntry.js",
+  "description": "",
+  "main": "src/app.js",
   "scripts": {
-    "start": "expo start",
+    "start": "nodemon src/app.js",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
@@ -42,5 +43,8 @@
     "sequelize-cli": "^6.3.0",
     "typescript": "~4.3.5"
   },
-  "private": true
+  "private": true,
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
