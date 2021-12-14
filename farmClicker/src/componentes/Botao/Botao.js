@@ -21,6 +21,7 @@ export default function Botao({valor,style,acao,acao2}) {
   var teste = verificaLogin(acao2);
   //acao2 == "garros"? valor=1 : valor = 2;
   //console.log("guilherme")
+  
   if(valor == 'Sign Up')
   {
    return( <TouchableOpacity   onPress={acao}  style={[estilos.botao,style]}>

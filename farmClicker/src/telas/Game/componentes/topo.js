@@ -18,6 +18,7 @@ const height = Dimensions.get('screen').height;
 
 export default function Topo ({dinheiro,flag,acao})
 {
+   
     return (
     <>
         <View style={{flex:1}}>

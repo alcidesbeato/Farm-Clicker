@@ -12,18 +12,18 @@ export default function Botao({style,dinheiro,comprado,acao,valor}) {
 
   console.log(dinheiro - valor)
   
-if(comprado == 0 && (dinheiro - valor) >= 0 )
-{
-  console.log(comprado + "foi");
-  return <TouchableOpacity onPress={()=>acao()} style={estilos.botao}>
-     <Texto style={estilos.texto}>Buy</Texto>
-  </TouchableOpacity>
-}
-else{
-    return <TouchableOpacity  style={estilos.botao}>
-          <Texto style={estilos.texto}>--COMPRADO-r-</Texto>
-      </TouchableOpacity>
-}
+  if(comprado == 0 && (dinheiro - valor) >= 0 )
+  {
+  // console.log(comprado + "foi");
+    return <TouchableOpacity onPress={()=>acao()} style={estilos.botao}>
+      <Texto style={estilos.texto}>Buy</Texto>
+    </TouchableOpacity>
+  }
+  else{
+      return <TouchableOpacity  style={estilos.botao}>
+            <Texto style={estilos.texto}>COMPRADO</Texto>
+        </TouchableOpacity>
+  }
 }
 
 const estilos = StyleSheet.create({

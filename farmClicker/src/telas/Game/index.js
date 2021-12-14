@@ -6,6 +6,7 @@ import BotaoComprar from '../Game/componentes/botaoComprar'
 import Topo from "./componentes/topo";
 import Bottom from './componentes/bottom';
 import Animais from './Lista/animais'
+import { getInstance } from '../../api';
 
 const width = Dimensions.get('screen').width;
 const height = Dimensions.get('screen').height;
@@ -25,7 +26,6 @@ import Cavalo from '../../../assets/Cavalinho.png';
 import mocks from '../../mocks/animais'
 //import LoadingBar from '../../componentes/LoadingBar/index'
 import { useNavigation } from '@react-navigation/native';
-import { getInstance } from '../../api';
 
 
 
@@ -126,7 +126,7 @@ function LoadingBar({time,acao,indexaux}) {
   
     if(index == time)
     {
-        console.log(dinheiro);
+        //console.log(dinheiro);
         setDinheiro(dinheiro+acao);
         return null;
 
@@ -141,18 +141,16 @@ function LoadingBar({time,acao,indexaux}) {
     );
   }
   
-export default function FarmClicker()
-{   
+export default function FarmClicker({route})
+{
     const name = 'garrosm'
     const instance = getInstance();
     async function updateUser(name, valor){
         const {data} = await (await instance).put(`/api/usuarios/${name}`, valor);
         console.log('data', data);
     }
-   
-    
     const navigation = useNavigation()
-    const [dinheiro,setDinheiro] = useState(1);
+    
     const [estado,setEstado] = useState(true);
     const [Galinhas,setGalinhas] = useState(0);
     const [Vacas,setVacas] = useState(0);
@@ -164,163 +162,199 @@ export default function FarmClicker()
     const [Abelhas,setAbelhas] = useState(0);
     const [Girafas,setGirafas] = useState(0);
     const [Lontras,setLontras] = useState(0);
-    const upGrades = [0,0,0,0,0,0,0,0,0,0,dinheiro];
+    const {upGrades} = route.params;
+    const [dinheiro,setDinheiro] = useState(upGrades[10]);
+    
+    
+    var teste2 = upGrades[10];
+    
+    
+   
+    
+   
     
     const compraGalinhas = () =>
     {
         setDinheiro(dinheiro-1);
         setGalinhas(Galinhas+1);
-        valor = {
-            quant_galinhas: Galinhas+1,
-            reais: dinheiro-1
-        }
-        //updateUser(name,valor);
+        upGrades[10] = dinheiro;
+         valor = {
+             quant_galinhas: Galinhas+1,
+             reais: dinheiro-1
+         }
+        updateUser(name,valor);
     }
 
     const compraVacas = () =>
     {
         setDinheiro(dinheiro-100);
         setVacas(Vacas+1);
-        valor = {
-            quant_vaca: Vacas+1,
-            reais: dinheiro-100
-        }
-        //updateUser(name,valor);
+        upGrades[10] = dinheiro;
+         valor = {
+             quant_vaca: Vacas+1,
+             reais: dinheiro-100
+         }
+         updateUser(name,valor);
     }
 
     const compraPorcos = () =>
     {
         setDinheiro(dinheiro-500);
         setPorcos(Porcos+1);
-        valor = {
-            quant_porco: Porcos+1,
-            reais: dinheiro-500
-        }
-        //updateUser(name,valor);
+        upGrades[10] = dinheiro;
+         valor = {
+             quant_porco: Porcos+1,
+             reais: dinheiro-500
+         }
+        updateUser(name,valor);
     }
 
     const compraOvelhas = () =>
     {
         setDinheiro(dinheiro-1000);
         setOvelhas(Ovelhas+1);
-        valor = {
-            quant_ovelha: Ovelhas+1,
-            reais: dinheiro-1000
-        }
-        //updateUser(name,valor);
+        upGrades[10] = dinheiro;
+         valor = {
+             quant_ovelha: Ovelhas+1,
+             reais: dinheiro-1000
+         }
+        updateUser(name,valor);
     }
 
     const compraCavalos = () =>
     {
         setDinheiro(dinheiro-2500);
         setCavalos(Cavalos+1);
-        valor = {
-            quant_cavalo: Cavalos+1,
-            reais: dinheiro-2500
-        }
-        //updateUser(name,valor);
+        upGrades[10] = dinheiro;
+         valor = {
+             quant_cavalo: Cavalos+1,
+             reais: dinheiro-2500
+         }
+        updateUser(name,valor);
     }
 
     const compraPeixes = () =>
     {
         setDinheiro(dinheiro-5000);
         setPeixes(Peixes+1);
+        upGrades[10] = dinheiro;
         valor = {
             quant_peixe: Peixes+1,
             reais: dinheiro-5000
         }
-        //updateUser(name,valor);
+        updateUser(name,valor);
     }
 
     const compraAbelhas = () =>
     {
         setDinheiro(dinheiro-10000);
         setAbelhas(Abelhas+1);
+        upGrades[10] = dinheiro;
         valor = {
             quant_abelha: Abelhas+1,
             reais: dinheiro-10000
         }
-        //updateUser(name,valor);
+        updateUser(name,valor);
     }
 
     const compraCamaroes = () =>
     {
         setDinheiro(dinheiro-25000);
         setCamaroes(Camaroes+1);
+        upGrades[10] = dinheiro;
         valor = {
             quant_camarao: Camaroes+1,
             reais: dinheiro-25000
         }
-        //updateUser(name,valor);
+        updateUser(name,valor);
     }
 
     const compraGirafas = () =>
     {
         setDinheiro(dinheiro-100000);
         setGirafas(Girafas+1);
+        upGrades[10] = dinheiro;
         valor = {
             quant_girafa: Girafas+1,
             reais: dinheiro-10000
         }
-        //updateUser(name,valor);
+        updateUser(name,valor);
     }
 
     const compraLontras = () =>
     {
-        
+    
         setDinheiro(dinheiro-500000);
         setLontras(Lontras+1);
-        valor = {
+        upGrades[10] = dinheiro;
+         valor = {
             quant_lontra: Lontras+1,
             reais: dinheiro-500000
         }
-        //updateUser(name,valor);
+        updateUser(name,valor);
     }
     
     const onPressG = (aux) =>
     {
         //console.log(aux);
-        aux == 0? setDinheiro(dinheiro) : setDinheiro((upGrades[0]*2)*dinheiro+(10000000*((aux)/100)+2));
+        //aux == 0? setDinheiro(dinheiro) : setDinheiro((upGrades[0]*2)*dinheiro+(10000000*((aux)/100)+2));
+        aux == 0? setDinheiro(dinheiro) : setDinheiro (upGrades[0] == 0 ? (dinheiro+(10000000*((aux)/100)+2)):(upGrades[0]*2)*dinheiro+(10000000*((aux)/100)+2));
+        
+        upGrades[10] = dinheiro;
+        console.log(upGrades[10]);
     }
     const onPressV = (aux) =>
     {
-        aux == 0? setDinheiro(dinheiro) : setDinheiro((upGrades[1]*2)*dinheiro+(16*((aux)/100)+16));
+        aux == 0? setDinheiro(dinheiro) : setDinheiro(upGrades[1] == 0 ? (dinheiro+(16*((aux)/100)+16)):(upGrades[1]*2)*dinheiro+(16*((aux)/100)+16));
+        upGrades[10] = dinheiro;
     }
     const onPressP = (aux) =>
     {
-        aux == 0? setDinheiro(dinheiro) : setDinheiro((upGrades[2]*2)*dinheiro+(16*((aux)/100)+64));
+        aux == 0? setDinheiro(dinheiro) : setDinheiro(upGrades[2] == 0 ? (dinheiro+(16*((aux)/100)+64)):(upGrades[2]*2)*dinheiro+(16*((aux)/100)+64));
+        upGrades[10] = dinheiro;
     }
     const onPressO = (aux) =>
     {
-        aux == 0? setDinheiro(dinheiro) : setDinheiro((upGrades[3]*2)*dinheiro+(32*((aux)/100)+256));
+        //aux == 0? setDinheiro(dinheiro) : setDinheiro((upGrades[3]*2)*dinheiro+(32*((aux)/100)+256));
+        aux == 0? setDinheiro(dinheiro) : setDinheiro(upGrades[3] == 0 ? (dinheiro+(32*((aux)/100)+256)):(upGrades[3]*2)*dinheiro+(32*((aux)/100)+256));
+        upGrades[10] = dinheiro;
     }
     const onPressC = (aux) =>
     {
-        aux == 0? setDinheiro(dinheiro) : setDinheiro((upGrades[4]*2)*dinheiro+(64*((aux)/100)+1024));
+        //aux == 0? setDinheiro(dinheiro) : setDinheiro((upGrades[4]*2)*dinheiro+(64*((aux)/100)+1024));
+        aux == 0? setDinheiro(dinheiro) : setDinheiro(upGrades[4] == 0 ? (dinheiro+(64*((aux)/100)+1024)):(upGrades[4]*2)*dinheiro+(64*((aux)/100)+1024));
+        upGrades[10] = dinheiro;
     }
     const onPressPe = (aux) =>
     {
-        aux == 0? setDinheiro(dinheiro) : setDinheiro((upGrades[5]*2)*dinheiro+(128*((aux)/100)+4096));
+        aux == 0? setDinheiro(dinheiro) : setDinheiro(upGrades[5] == 0 ? (dinheiro+(128*((aux)/100)+4096)):(upGrades[5]*2)*dinheiro+(128*((aux)/100)+4096));
+        upGrades[10] = dinheiro;
     }
     const onPressA = (aux) =>
     {
-        aux == 0? setDinheiro(dinheiro) : setDinheiro((upGrades[6]*2)*dinheiro+(256*((aux)/100)+16376));
+        aux == 0? setDinheiro(dinheiro) : setDinheiro(upGrades[6] == 0 ? (dinheiro+(256*((aux)/100)+16376)):(upGrades[6]*2)*dinheiro+(256*((aux)/100)+16376));
+        upGrades[10] = dinheiro;
     }
     const onPressCa = (aux) =>
     {   
-        aux == 0? setDinheiro(dinheiro) : setDinheiro((upGrades[7]*2)*dinheiro+(256*((aux)/100)+92000));
+        aux == 0? setDinheiro(dinheiro) : setDinheiro(upGrades[7] == 0 ? (dinheiro+(256*((aux)/100)+92000)):(upGrades[7]*2)*dinheiro+(256*((aux)/100)+92000));
+        upGrades[10] = dinheiro;
     }
     const onPressGi = (aux) =>
     {
-        aux == 0? setDinheiro(dinheiro) : setDinheiro((upGrades[8]*2)*dinheiro+(256*((aux)/100)+500000));
+        aux == 0? setDinheiro(dinheiro) : setDinheiro(upGrades[8] == 0 ? (dinheiro+(256*((aux)/100)+500000)):(upGrades[8]*2)*dinheiro+(256*((aux)/100)+500000));
+        
+        upGrades[10] = dinheiro;
     }
     const onPressL = (aux) =>
     {
-        aux == 0? setDinheiro(dinheiro) : setDinheiro((upGrades[9]*2)*dinheiro+(256*((aux)/100)+800000));
+        aux == 0? setDinheiro(dinheiro) : setDinheiro(upGrades[9] == 0 ? (dinheiro+(256*((aux)/100)+800000)):(upGrades[9]*2)*dinheiro+(256*((aux)/100)+800000));
+
+        upGrades[10] = dinheiro;
     }
 
     return (<>     
-        <Topo dinheiro={dinheiro}/> 
+        <Topo dinheiro={dinheiro} /> 
         <View style={estilos.bichos}>
         <ScrollView style={{marginBottom: 50}}>
             <View style={estilos.item}> 
@@ -338,7 +372,7 @@ export default function FarmClicker()
                         <Texto style={estilos.earning}>Earning per Click:{'\n'}{
                                 Intl.NumberFormat('pt-BR', {
                                 style: 'currency', currency: 'BRL'
-                                }).format(Galinhas == 0 ? 0 : (upGrades[0]*2)*(10000000*((Galinhas)/100)+2))
+                                }).format(Galinhas == 0 ? 0 : (upGrades[0] == 0 ? ((10000000*((Galinhas)/100)+2)):(upGrades[0]*2)*(10000000*((Galinhas)/100)+2)))
                         }</Texto> 
                     </View> 
             </View>
@@ -358,7 +392,7 @@ export default function FarmClicker()
                         <Texto style={estilos.earning}>Earning per Click:{'\n'}{
                                 Intl.NumberFormat('pt-BR', {
                                 style: 'currency', currency: 'BRL'
-                                }).format(Vacas == 0 ? 0 : (upGrades[1]*2)*(16*((Vacas)/100)+16))
+                                }).format(Vacas == 0 ? 0 : (upGrades[1] == 0 ? ((16*((Vacas)/100)+16)):(upGrades[1]*2)*(16*((Vacas)/100)+16)))
                         }</Texto>
                     </View> 
             </View>    
@@ -377,7 +411,7 @@ export default function FarmClicker()
                         <Texto style={estilos.earning}>Earning per Click:{'\n'}{
                                 Intl.NumberFormat('pt-BR', {
                                 style: 'currency', currency: 'BRL'
-                                }).format(Porcos == 0 ? 0 : (upGrades[2]*2)*(16*((Porcos)/100)+64))
+                                }).format(Porcos == 0 ? 0 : (upGrades[2] == 0 ? ((16*((Porcos)/100)+64)):(upGrades[2]*2)*(16*((Porcos)/100)+64)))
                         }</Texto>
                     </View> 
             </View>  
@@ -397,7 +431,7 @@ export default function FarmClicker()
                         <Texto style={estilos.earning}>Earning per Click:{'\n'}{
                                 Intl.NumberFormat('pt-BR', {
                                 style: 'currency', currency: 'BRL'
-                                }).format(Ovelhas == 0 ? 0 : (upGrades[3]*2)*(32*((Ovelhas)/100)+256))
+                                }).format(Ovelhas == 0 ? 0 : (upGrades[3] == 0 ? ((32*((Porcos)/100)+256)):(upGrades[3]*2)*(32*((Porcos)/100)+256)))
                         }</Texto>
                     </View> 
             </View>  
@@ -417,7 +451,7 @@ export default function FarmClicker()
                         <Texto style={estilos.earning}>Earning per Click:{'\n'}{
                                 Intl.NumberFormat('pt-BR', {
                                 style: 'currency', currency: 'BRL'
-                                }).format(Cavalos == 0 ? 0 : (upGrades[4]*2)*(64*((Cavalos)/100)+1024))
+                                }).format(Cavalos == 0 ? 0 : (upGrades[4] == 0 ? ((64*((Cavalos)/100)+1024)):(upGrades[4]*2)*(64*((Porcos)/100)+1024)))
                         }</Texto>
                     </View> 
             </View>  
@@ -436,7 +470,7 @@ export default function FarmClicker()
                         <Texto style={estilos.earning}>Earning per Click:{'\n'}{
                                 Intl.NumberFormat('pt-BR', {
                                 style: 'currency', currency: 'BRL'
-                                }).format(Peixes == 0 ? 0 : (upGrades[5]*2)*((128*((Peixes)/100)+4096)))
+                                }).format(Peixes == 0 ? 0 : (upGrades[5] == 0 ? ((128*((Peixes)/100)+4096)):(upGrades[5]*2)*(128*((Peixes)/100)+4096)))
                         }</Texto>
                     </View> 
             </View>  
@@ -456,7 +490,7 @@ export default function FarmClicker()
                         <Texto style={estilos.earning}>Earning per Click:{'\n'}{
                                 Intl.NumberFormat('pt-BR', {
                                 style: 'currency', currency: 'BRL'
-                                }).format(Abelhas == 0 ? 0 : (upGrades[6]*2)*(256*((Abelhas)/100)+16376))
+                                }).format(Abelhas == 0 ? 0 : (upGrades[6] == 0 ? ((256*((Abelhas)/100)+16376)):(upGrades[6]*2)*(256*((Abelhas)/100)+16376)))
                         }</Texto>
                     </View> 
             </View>  
@@ -475,7 +509,7 @@ export default function FarmClicker()
                         <Texto style={estilos.earning}>Earning per Click:{'\n'}{
                                 Intl.NumberFormat('pt-BR', {
                                 style: 'currency', currency: 'BRL'
-                                }).format(Camaroes == 0 ? 0 : (upGrades[7]*2)*(256*((Camaroes)/100)+92000))
+                                }).format(Camaroes == 0 ? 0 : (upGrades[7] == 0 ? ((256*((Camaroes)/100)+92000)):(upGrades[7]*2)*(256*((Camaroes)/100)+92000)))
                         }</Texto>
                     </View> 
             </View>  
@@ -495,7 +529,7 @@ export default function FarmClicker()
                         <Texto style={estilos.earning}>Earning per Click:{'\n'}{
                                 Intl.NumberFormat('pt-BR', {
                                 style: 'currency', currency: 'BRL'
-                                }).format(Girafas == 0 ? 0 : (upGrades[8]*2)*(256*((Girafas)/100)+500000))
+                                }).format(Girafas == 0 ? 0 : (upGrades[8] == 0 ? ((256*((Girafas)/100)+500000)):(upGrades[8]*2)*(256*((Girafas)/100)+500000)))
                         }</Texto>
                     </View> 
             </View>
@@ -515,13 +549,13 @@ export default function FarmClicker()
                         <Texto style={estilos.earning}>Earning per Click:{'\n'}{
                                 Intl.NumberFormat('pt-BR', {
                                 style: 'currency', currency: 'BRL'
-                                }).format(Lontras == 0 ? 0 : (upGrades[9]*2)*(256*((Lontras)/100)+800000))
+                                }).format(Lontras == 0 ? 0 : (upGrades[9] == 0 ? ((256*((Lontras)/100)+800000)):(upGrades[9]*2)*(256*((Lon)/100)+800000)))
                         }</Texto>
                     </View> 
             </View>
             </ScrollView>
     </View>
-<Bottom params={upGrades} />
+<Bottom params={upGrades} dinheiro={dinheiro} />
 </>
     
     )

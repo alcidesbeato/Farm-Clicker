@@ -14,8 +14,9 @@ import estilos from './estiloBottom';
 
 const height = 100/279 * Dimensions.get('screen').width;
 
-export default function Bottom({params}){
+export default function Bottom({params,dinheiro}){
 
+    params[10] = dinheiro;
     const navigation = useNavigation()
     return (
         <View style={{position: 'absolute', bottom: 0, right: 0, width: '100%', height: height}}>

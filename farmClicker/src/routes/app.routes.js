@@ -41,7 +41,13 @@ export function LoginNavigator() {
         <Navigator initialRouteName="Login" screenOptions={{ headerShown: false }} >
             <Screen name="Login" component={Login}/>
             <Screen name="Registrar" component={Registrar}/>
-            <Screen name="FarmNavigator" component={FarmNavigator}/>
+            <Screen name="Farm" component={Farm}/>
+            <Screen name="Shop" component={Shop}/>
+            <Screen name="VerAd" component={VerAd}/>
+            <Screen name="Settings" component={Settings}/>
+            <Screen name="ShopDolar" component={ShopDolar}/>
+            <Screen name="ShopFazendeiro" component={ShopFazendeiro}/>
+
         </Navigator>
     )
 }

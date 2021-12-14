@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { Image, StyleSheet, Text, View,Dimensions,TouchableOpacity,FlatList, ScrollView } from 'react-native'
 
 import Texto  from '../../componentes/Texto'
@@ -29,32 +29,35 @@ import Lontra from '../../../assets/lontra.png';
 import Abelha from '../../../assets/Abelha.png';
 import Cavalo from '../../../assets/Cavalinho.png';
 
-import { useNavigation } from '@react-navigation/native';
-
 const width = Dimensions.get('screen').width;
 const height = Dimensions.get('screen').height;
 import mocks from '../../mocks/animais'
+import { useNavigation } from '@react-navigation/native';
 
 export default function Shop({route}){
+    const navigation = useNavigation()
 
     const {vet} = route.params;
-    console.log(vet);
-    console.log(vet[0]);
-    const setVet = () =>
+ 
+    //console.log(vet[0]);
+
+    const setVet = (position,preco) =>
     {
-        console.log("teste");
-        vet[0] = 1;
-        return null;
-        console.log(vet);
+       /// console.log("teste");
+        vet[position] = 1;
+        vet[10] = vet[10] - preco;
+        console.log(vet[10]+"aqui");
+        navigation.navigate('Shop',{vet:vet})
+       
     } 
 
-    const navigation = useNavigation()
+ 
     return <View style={{flex: 1}}>
         <Fundo/>
         <MadeiraTopo/>
         <View style={[{flexDirection: 'row'},{position: 'absolute'}]}>
             <Image source={folhaShop} style={estilos.folhaShop}/>
-            <TouchableOpacity onPress={()=>navigation.navigate('Farm')}>
+            <TouchableOpacity onPress={()=>navigation.navigate('Farm',{upGrades:vet})}>
                 <Image source={botaoSair} style={estilos.botaoSair}/>
             </TouchableOpacity>
         </View> 
@@ -62,7 +65,7 @@ export default function Shop({route}){
         { 
             Intl.NumberFormat('pt-BR', {
             style: 'currency', currency: 'BRL'
-            }).format(400000)
+            }).format(vet[10])
         } </Texto>
 
         <View>
@@ -92,7 +95,7 @@ export default function Shop({route}){
                                 style: 'currency', currency: 'BRL'
                                 }).format(10000)
                             }</Texto>
-                            <Botao dinheiro={vet[10]} comprado = {vet[0]} acao = {() => setVet()} valor = {10000}/>  
+                            <Botao dinheiro={vet[10]} comprado = {vet[0]} acao = {() => setVet(0,10000)} valor = {10000}/>  
                         </View>
                     </View>
                 </View>
@@ -108,7 +111,7 @@ export default function Shop({route}){
                                 style: 'currency', currency: 'BRL'
                                 }).format(15000)
                             }</Texto>
-                            <Botao/>  
+                            <Botao dinheiro={vet[10]} comprado = {vet[1]} acao = {() => setVet(1,15000)} valor = {15000}/>  
                         </View>
                     </View>
                 </View>
@@ -124,7 +127,7 @@ export default function Shop({route}){
                                 style: 'currency', currency: 'BRL'
                                 }).format(40000)
                             }</Texto>
-                            <Botao/>  
+                            <Botao dinheiro={vet[10]} comprado = {vet[2]} acao = {() => setVet(2,40000)} valor = {40000}/>  
                         </View>
                     </View>
                 </View>
@@ -140,7 +143,7 @@ export default function Shop({route}){
                                 style: 'currency', currency: 'BRL'
                                 }).format(95000)
                             }</Texto>
-                            <Botao/>  
+                            <Botao dinheiro={vet[10]} comprado = {vet[3]} acao = {() => setVet(3,95000)} valor = {95000}/>  
                         </View>
                     </View>
                 </View>
@@ -156,7 +159,7 @@ export default function Shop({route}){
                                 style: 'currency', currency: 'BRL'
                                 }).format(150000)
                             }</Texto>
-                            <Botao/>  
+                            <Botao dinheiro={vet[10]} comprado = {vet[4]} acao = {() => setVet(4,15000)} valor = {150000}/>  
                         </View>
                     </View>
                 </View>
@@ -172,7 +175,7 @@ export default function Shop({route}){
                                 style: 'currency', currency: 'BRL'
                                 }).format(320000)
                             }</Texto>
-                            <Botao/>  
+                            <Botao dinheiro={vet[10]} comprado = {vet[5]} acao = {() => setVet(5,320000)} valor = {320000}/>  
                         </View>
                     </View>
                 </View>
@@ -188,7 +191,7 @@ export default function Shop({route}){
                                 style: 'currency', currency: 'BRL'
                                 }).format(1500000)
                             }</Texto>
-                            <Botao/>  
+                            <Botao dinheiro={vet[10]} comprado = {vet[6]} acao = {() => setVet(6,1500000)} valor = {1500000}/>  
                         </View>
                     </View>
                 </View>
@@ -204,7 +207,7 @@ export default function Shop({route}){
                                 style: 'currency', currency: 'BRL'
                                 }).format(3200000)
                             }</Texto>
-                            <Botao/>  
+                            <Botao dinheiro={vet[10]} comprado = {vet[7]} acao = {() => setVet(7,3200000)} valor = {3200000}/>  
                         </View>
                     </View>
                 </View>
@@ -220,7 +223,7 @@ export default function Shop({route}){
                                 style: 'currency', currency: 'BRL'
                                 }).format(10000000)
                             }</Texto>
-                            <Botao/>  
+                            <Botao dinheiro={vet[10]} comprado = {vet[8]} acao = {() => setVet(8,10000000)} valor = {10000000}/>  
                         </View>
                     </View>
                 </View>
@@ -236,7 +239,7 @@ export default function Shop({route}){
                                 style: 'currency', currency: 'BRL'
                                 }).format(1000000000)
                             }</Texto>
-                            <Botao/>  
+                            <Botao dinheiro={vet[10]} comprado = {vet[9]} acao = {() => setVet(9,1000000000)} valor = {1000000000}/>  
                         </View>
                     </View>
                 </View>
