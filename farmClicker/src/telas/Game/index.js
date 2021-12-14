@@ -97,10 +97,6 @@ const Progress = ({step,steps,height}) =>
   </>
 }
 
- 
-
-
-
   function setDinheiro  (aux) 
   {
     this.setState({
@@ -160,7 +156,8 @@ export default function FarmClicker()
     const [Abelhas,setAbelhas] = useState(0);
     const [Girafas,setGirafas] = useState(0);
     const [Lontras,setLontras] = useState(0);
-
+    const upGrades = [0,0,0,0,0,0,0,0,0,0,dinheiro];
+    
     const compraGalinhas = () =>
     {
         setDinheiro(dinheiro-1);
@@ -225,52 +222,43 @@ export default function FarmClicker()
     const onPressG = (aux) =>
     {
         //console.log(aux);
-        aux == 0? setDinheiro(dinheiro) : setDinheiro(dinheiro+(10000000*((aux)/100)+2));
+        aux == 0? setDinheiro(dinheiro) : setDinheiro((upGrades[0]*2)*dinheiro+(10000000*((aux)/100)+2));
     }
     const onPressV = (aux) =>
     {
-        
-        aux == 0? setDinheiro(dinheiro) : setDinheiro(dinheiro+(16*((aux)/100)+16));
+        aux == 0? setDinheiro(dinheiro) : setDinheiro((upGrades[1]*2)*dinheiro+(16*((aux)/100)+16));
     }
     const onPressP = (aux) =>
     {
-        
-        aux == 0? setDinheiro(dinheiro) : setDinheiro(dinheiro+(16*((aux)/100)+64));
+        aux == 0? setDinheiro(dinheiro) : setDinheiro((upGrades[2]*2)*dinheiro+(16*((aux)/100)+64));
     }
     const onPressO = (aux) =>
     {
-        
-        aux == 0? setDinheiro(dinheiro) : setDinheiro(dinheiro+(32*((aux)/100)+256));
+        aux == 0? setDinheiro(dinheiro) : setDinheiro((upGrades[3]*2)*dinheiro+(32*((aux)/100)+256));
     }
     const onPressC = (aux) =>
     {
-        
-        aux == 0? setDinheiro(dinheiro) : setDinheiro(dinheiro+(64*((aux)/100)+1024));
+        aux == 0? setDinheiro(dinheiro) : setDinheiro((upGrades[4]*2)*dinheiro+(64*((aux)/100)+1024));
     }
     const onPressPe = (aux) =>
     {
-        
-        aux == 0? setDinheiro(dinheiro) : setDinheiro(dinheiro+(128*((aux)/100)+4096));
+        aux == 0? setDinheiro(dinheiro) : setDinheiro((upGrades[5]*2)*dinheiro+(128*((aux)/100)+4096));
     }
     const onPressA = (aux) =>
     {
-        
-        aux == 0? setDinheiro(dinheiro) : setDinheiro(dinheiro+(256*((aux)/100)+16376));
+        aux == 0? setDinheiro(dinheiro) : setDinheiro((upGrades[6]*2)*dinheiro+(256*((aux)/100)+16376));
     }
     const onPressCa = (aux) =>
-    {
-        
-        aux == 0? setDinheiro(dinheiro) : setDinheiro(dinheiro+(256*((aux)/100)+92000));
+    {   
+        aux == 0? setDinheiro(dinheiro) : setDinheiro((upGrades[7]*2)*dinheiro+(256*((aux)/100)+92000));
     }
     const onPressGi = (aux) =>
     {
-        
-        aux == 0? setDinheiro(dinheiro) : setDinheiro(dinheiro+(256*((aux)/100)+500000));
+        aux == 0? setDinheiro(dinheiro) : setDinheiro((upGrades[8]*2)*dinheiro+(256*((aux)/100)+500000));
     }
     const onPressL = (aux) =>
     {
-        
-        aux == 0? setDinheiro(dinheiro) : setDinheiro(dinheiro+(256*((aux)/100)+800000));
+        aux == 0? setDinheiro(dinheiro) : setDinheiro((upGrades[9]*2)*dinheiro+(256*((aux)/100)+800000));
     }
 
     return (<>     
@@ -292,7 +280,7 @@ export default function FarmClicker()
                         <Texto style={estilos.earning}>Earning per Click:{'\n'}{
                                 Intl.NumberFormat('pt-BR', {
                                 style: 'currency', currency: 'BRL'
-                                }).format(Galinhas == 0 ? 0 : (10000000*((Galinhas)/100)+2))
+                                }).format(Galinhas == 0 ? 0 : (upGrades[0]*2)*(10000000*((Galinhas)/100)+2))
                         }</Texto> 
                     </View> 
             </View>
@@ -312,7 +300,7 @@ export default function FarmClicker()
                         <Texto style={estilos.earning}>Earning per Click:{'\n'}{
                                 Intl.NumberFormat('pt-BR', {
                                 style: 'currency', currency: 'BRL'
-                                }).format(Vacas == 0 ? 0 : (16*((Vacas)/100)+16))
+                                }).format(Vacas == 0 ? 0 : (upGrades[1]*2)*(16*((Vacas)/100)+16))
                         }</Texto>
                     </View> 
             </View>    
@@ -331,7 +319,7 @@ export default function FarmClicker()
                         <Texto style={estilos.earning}>Earning per Click:{'\n'}{
                                 Intl.NumberFormat('pt-BR', {
                                 style: 'currency', currency: 'BRL'
-                                }).format(Porcos == 0 ? 0 : (16*((Porcos)/100)+64))
+                                }).format(Porcos == 0 ? 0 : (upGrades[2]*2)*(16*((Porcos)/100)+64))
                         }</Texto>
                     </View> 
             </View>  
@@ -351,7 +339,7 @@ export default function FarmClicker()
                         <Texto style={estilos.earning}>Earning per Click:{'\n'}{
                                 Intl.NumberFormat('pt-BR', {
                                 style: 'currency', currency: 'BRL'
-                                }).format(Ovelhas == 0 ? 0 : ( (32*((Ovelhas)/100)+256)))
+                                }).format(Ovelhas == 0 ? 0 : (upGrades[3]*2)*(32*((Ovelhas)/100)+256))
                         }</Texto>
                     </View> 
             </View>  
@@ -371,7 +359,7 @@ export default function FarmClicker()
                         <Texto style={estilos.earning}>Earning per Click:{'\n'}{
                                 Intl.NumberFormat('pt-BR', {
                                 style: 'currency', currency: 'BRL'
-                                }).format(Cavalos == 0 ? 0 : ((64*((Cavalos)/100)+1024)))
+                                }).format(Cavalos == 0 ? 0 : (upGrades[4]*2)*(64*((Cavalos)/100)+1024))
                         }</Texto>
                     </View> 
             </View>  
@@ -390,7 +378,7 @@ export default function FarmClicker()
                         <Texto style={estilos.earning}>Earning per Click:{'\n'}{
                                 Intl.NumberFormat('pt-BR', {
                                 style: 'currency', currency: 'BRL'
-                                }).format(Peixes == 0 ? 0 : ((128*((Peixes)/100)+4096)))
+                                }).format(Peixes == 0 ? 0 : (upGrades[5]*2)*((128*((Peixes)/100)+4096)))
                         }</Texto>
                     </View> 
             </View>  
@@ -410,7 +398,7 @@ export default function FarmClicker()
                         <Texto style={estilos.earning}>Earning per Click:{'\n'}{
                                 Intl.NumberFormat('pt-BR', {
                                 style: 'currency', currency: 'BRL'
-                                }).format(Abelhas == 0 ? 0 : ((256*((Abelhas)/100)+16376)))
+                                }).format(Abelhas == 0 ? 0 : (upGrades[6]*2)*(256*((Abelhas)/100)+16376))
                         }</Texto>
                     </View> 
             </View>  
@@ -429,7 +417,7 @@ export default function FarmClicker()
                         <Texto style={estilos.earning}>Earning per Click:{'\n'}{
                                 Intl.NumberFormat('pt-BR', {
                                 style: 'currency', currency: 'BRL'
-                                }).format(Camaroes == 0 ? 0 : ((256*((Camaroes)/100)+92000)))
+                                }).format(Camaroes == 0 ? 0 : (upGrades[7]*2)*(256*((Camaroes)/100)+92000))
                         }</Texto>
                     </View> 
             </View>  
@@ -449,7 +437,7 @@ export default function FarmClicker()
                         <Texto style={estilos.earning}>Earning per Click:{'\n'}{
                                 Intl.NumberFormat('pt-BR', {
                                 style: 'currency', currency: 'BRL'
-                                }).format(Girafas == 0 ? 0 : ((256*((Girafas)/100)+500000)))
+                                }).format(Girafas == 0 ? 0 : (upGrades[8]*2)*(256*((Girafas)/100)+500000))
                         }</Texto>
                     </View> 
             </View>
@@ -469,13 +457,13 @@ export default function FarmClicker()
                         <Texto style={estilos.earning}>Earning per Click:{'\n'}{
                                 Intl.NumberFormat('pt-BR', {
                                 style: 'currency', currency: 'BRL'
-                                }).format(Lontras == 0 ? 0 : ((256*((Lontras)/100)+800000)))
+                                }).format(Lontras == 0 ? 0 : (upGrades[9]*2)*(256*((Lontras)/100)+800000))
                         }</Texto>
                     </View> 
             </View>
             </ScrollView>
     </View>
-<Bottom/>
+<Bottom params={upGrades} />
 </>
     
     )

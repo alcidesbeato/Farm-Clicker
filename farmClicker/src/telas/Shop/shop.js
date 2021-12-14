@@ -37,9 +37,17 @@ import mocks from '../../mocks/animais'
 
 export default function Shop({route}){
 
-    const {nome} = route.params;
-    const nomeb = nome[0];
-    console.log(nomeb);
+    const {vet} = route.params;
+    console.log(vet);
+    console.log(vet[0]);
+    const setVet = () =>
+    {
+        console.log("teste");
+        vet[0] = 1;
+        return null;
+        console.log(vet);
+    } 
+
     const navigation = useNavigation()
     return <View style={{flex: 1}}>
         <Fundo/>
@@ -78,13 +86,13 @@ export default function Shop({route}){
                     <Image source={Galinha} style = {estilos.imagem}/>
                     <View style={estilos.cadaItem}>
                         <View style={estilos.detalhes}>
-                            <Texto style={estilos.nome}>"Chicken 2x!"</Texto>
+                            <Texto style={estilos.nome}>Chicken 2x!</Texto>
                             <Texto style={estilos.preco}>{
                                 Intl.NumberFormat('pt-BR', {
                                 style: 'currency', currency: 'BRL'
                                 }).format(10000)
                             }</Texto>
-                            <Botao/>  
+                            <Botao dinheiro={vet[10]} comprado = {vet[0]} acao = {() => setVet()} valor = {10000}/>  
                         </View>
                     </View>
                 </View>
