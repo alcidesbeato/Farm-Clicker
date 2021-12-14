@@ -161,270 +161,316 @@ export default function FarmClicker()
     const [Girafas,setGirafas] = useState(0);
     const [Lontras,setLontras] = useState(0);
 
-    compraGalinhas = () =>
+    const compraGalinhas = () =>
     {
-    
         setDinheiro(dinheiro-1);
         setGalinhas(Galinhas+1);
     }
 
-    compraVacas = () =>
+    const compraVacas = () =>
     {
         setDinheiro(dinheiro-100);
         setVacas(Vacas+1);
     }
 
-    compraPorcos = () =>
+    const compraPorcos = () =>
     {
         setDinheiro(dinheiro-500);
         setPorcos(Porcos+1);
     }
 
-    compraOvelhas = () =>
+    const compraOvelhas = () =>
     {
         setDinheiro(dinheiro-1000);
         setOvelhas(Ovelhas+1);
     }
 
-    compraCavalos = () =>
+    const compraCavalos = () =>
     {
         setDinheiro(dinheiro-2500);
         setCavalos(Cavalos+1);
     }
 
-    compraPeixes = () =>
+    const compraPeixes = () =>
     {
         setDinheiro(dinheiro-5000);
         setPeixes(Peixes+1);
     }
 
-    compraAbelhas = () =>
+    const compraAbelhas = () =>
     {
         setDinheiro(dinheiro-10000);
         setAbelhas(Abelhas+1);
     }
 
-    compraCamaroes = () =>
+    const compraCamaroes = () =>
     {
         setDinheiro(dinheiro-25000);
         setCamaroes(Camaroes+1);
     }
 
-    compraGirafas = () =>
+    const compraGirafas = () =>
     {
         setDinheiro(dinheiro-100000);
         setGirafas(Girafas+1);
     }
 
-    compraLontras = () =>
+    const compraLontras = () =>
     {
     
         setDinheiro(dinheiro-500000);
         setLontras(Lontras+1);
     }
     
-    onPressG = (aux) =>
+    const onPressG = (aux) =>
     {
         //console.log(aux);
         aux == 0? setDinheiro(dinheiro) : setDinheiro(dinheiro+(10000000*((aux)/100)+2));
     }
-    onPressV = (aux) =>
+    const onPressV = (aux) =>
     {
         
         aux == 0? setDinheiro(dinheiro) : setDinheiro(dinheiro+(16*((aux)/100)+16));
     }
-    onPressP = (aux) =>
+    const onPressP = (aux) =>
     {
         
         aux == 0? setDinheiro(dinheiro) : setDinheiro(dinheiro+(16*((aux)/100)+64));
     }
-    onPressO = (aux) =>
+    const onPressO = (aux) =>
     {
         
         aux == 0? setDinheiro(dinheiro) : setDinheiro(dinheiro+(32*((aux)/100)+256));
     }
-    onPressC = (aux) =>
+    const onPressC = (aux) =>
     {
         
         aux == 0? setDinheiro(dinheiro) : setDinheiro(dinheiro+(64*((aux)/100)+1024));
     }
-    onPressPe = (aux) =>
+    const onPressPe = (aux) =>
     {
         
         aux == 0? setDinheiro(dinheiro) : setDinheiro(dinheiro+(128*((aux)/100)+4096));
     }
-    onPressA = (aux) =>
+    const onPressA = (aux) =>
     {
         
         aux == 0? setDinheiro(dinheiro) : setDinheiro(dinheiro+(256*((aux)/100)+16376));
     }
-    onPressCa = (aux) =>
+    const onPressCa = (aux) =>
     {
         
         aux == 0? setDinheiro(dinheiro) : setDinheiro(dinheiro+(256*((aux)/100)+92000));
     }
-    onPressGi = (aux) =>
+    const onPressGi = (aux) =>
     {
         
         aux == 0? setDinheiro(dinheiro) : setDinheiro(dinheiro+(256*((aux)/100)+500000));
     }
-    onPressL = (aux) =>
+    const onPressL = (aux) =>
     {
         
         aux == 0? setDinheiro(dinheiro) : setDinheiro(dinheiro+(256*((aux)/100)+800000));
     }
+
     return (<>     
         <Topo dinheiro={dinheiro}/> 
         <View style={estilos.bichos}>
-      
         <ScrollView style={{marginBottom: 50}}>
             <View style={estilos.item}> 
-            <TouchableOpacity onPress={()=>onPressG(Galinhas)} style={{width: 75, height: 75}}>
+            <TouchableOpacity onPress={()=>onPressG(Galinhas)} style={estilos.touchable}>
                 <Image source={Galinha} style = {estilos.imagem}/>
             </TouchableOpacity>
                     <View style={estilos.cadaItem}>
-                        <BotaoComprar dinheiro={dinheiro} quantidade={Galinhas} acao={compraGalinhas} preco={1} />
+                        <BotaoComprar dinheiro={dinheiro} quantidade={Galinhas} acao={() => compraGalinhas()} preco={1} />
                         <Texto style={estilos.quantidade}>{Galinhas}</Texto> 
-                        <Texto style={estilos.preco}>{
+                        <Texto style={estilos.preco}>Price:{'\n'}{
                                 Intl.NumberFormat('pt-BR', {
                                 style: 'currency', currency: 'BRL'
                                 }).format(1)
                         }</Texto> 
+                        <Texto style={estilos.earning}>Earning per Click:{'\n'}{
+                                Intl.NumberFormat('pt-BR', {
+                                style: 'currency', currency: 'BRL'
+                                }).format(Galinhas == 0 ? 0 : (10000000*((Galinhas)/100)+2))
+                        }</Texto> 
                     </View> 
             </View>
             <View style={estilos.item}> 
-            <TouchableOpacity onPress={()=>onPressV(Galinhas)} style={{width: 75, height: 75}}>
+            <TouchableOpacity onPress={()=>onPressV(Vacas)} style={estilos.touchable}>
                 <Image source={Vaca} style = {estilos.imagem}/>
             </TouchableOpacity>
                 
                     <View style={estilos.cadaItem}>
-                        <BotaoComprar dinheiro={dinheiro} quantidade={Vacas} acao={compraVacas} preco={100}/>
+                        <BotaoComprar dinheiro={dinheiro} quantidade={Vacas} acao={() => compraVacas()} preco={100}/>
                         <Texto style={estilos.quantidade}>{Vacas}</Texto> 
-                        <Texto style={estilos.preco}>{
+                        <Texto style={estilos.preco}>Price:{'\n'}{
                                 Intl.NumberFormat('pt-BR', {
                                 style: 'currency', currency: 'BRL'
                                 }).format(100)
                         }</Texto> 
+                        <Texto style={estilos.earning}>Earning per Click:{'\n'}{
+                                Intl.NumberFormat('pt-BR', {
+                                style: 'currency', currency: 'BRL'
+                                }).format(Vacas == 0 ? 0 : (16*((Vacas)/100)+16))
+                        }</Texto>
                     </View> 
             </View>    
             <View style={estilos.item}> 
-            <TouchableOpacity onPress={()=>onPressP(Porcos)} style={{width: 75, height: 75}}>
+            <TouchableOpacity onPress={()=>onPressP(Porcos)} style={estilos.touchable}>
             <Image source={Porco} style = {estilos.imagem}/>
             </TouchableOpacity>
-                
                     <View style={estilos.cadaItem}>
-                        <BotaoComprar dinheiro={dinheiro} quantidade={Porcos} acao={compraPorcos} preco={500}/>
+                        <BotaoComprar dinheiro={dinheiro} quantidade={Porcos} acao={() => compraPorcos()} preco={500}/>
                         <Texto style={estilos.quantidade}>{Porcos}</Texto> 
-                        <Texto style={estilos.preco}>{
+                        <Texto style={estilos.preco}>Price:{'\n'}{
                                 Intl.NumberFormat('pt-BR', {
                                 style: 'currency', currency: 'BRL'
                                 }).format(500)
                         }</Texto> 
+                        <Texto style={estilos.earning}>Earning per Click:{'\n'}{
+                                Intl.NumberFormat('pt-BR', {
+                                style: 'currency', currency: 'BRL'
+                                }).format(Porcos == 0 ? 0 : (16*((Porcos)/100)+64))
+                        }</Texto>
                     </View> 
             </View>  
             <View style={estilos.item}> 
-            <TouchableOpacity onPress={()=>onPressO(Ovelhas)} style={{width: 75, height: 75}}>
+            <TouchableOpacity onPress={()=>onPressO(Ovelhas)} style={estilos.touchable}>
             <Image source={Ovelha} style = {estilos.imagem}/>
             </TouchableOpacity>
-                
+           
                     <View style={estilos.cadaItem}>
-                        <BotaoComprar dinheiro={dinheiro} quantidade={Ovelhas} acao={compraOvelhas} preco={1000}/>
+                        <BotaoComprar dinheiro={dinheiro} quantidade={Ovelhas} acao={() => compraOvelhas()} preco={1000}/>
                         <Texto style={estilos.quantidade}>{Ovelhas}</Texto> 
-                        <Texto style={estilos.preco}>{
+                        <Texto style={estilos.preco}>Price:{'\n'}{
                                 Intl.NumberFormat('pt-BR', {
                                 style: 'currency', currency: 'BRL'
                                 }).format(1000)
                         }</Texto> 
+                        <Texto style={estilos.earning}>Earning per Click:{'\n'}{
+                                Intl.NumberFormat('pt-BR', {
+                                style: 'currency', currency: 'BRL'
+                                }).format(Ovelhas == 0 ? 0 : ( (32*((Ovelhas)/100)+256)))
+                        }</Texto>
                     </View> 
             </View>  
             <View style={estilos.item}> 
-            <TouchableOpacity onPress={()=>onPressC(Cavalos)} style={{width: 75, height: 75}}>
+            <TouchableOpacity onPress={()=>onPressC(Cavalos)} style={estilos.touchable}>
             <Image source={Cavalo} style = {estilos.imagem}/>
             </TouchableOpacity>
                 
                     <View style={estilos.cadaItem}>
-                        <BotaoComprar dinheiro={dinheiro} quantidade={Cavalos} acao={compraCavalos} preco={2500}/>
+                        <BotaoComprar dinheiro={dinheiro} quantidade={Cavalos} acao={() => compraCavalos()} preco={2500}/>
                         <Texto style={estilos.quantidade}>{Cavalos}</Texto> 
-                        <Texto style={estilos.preco}>{
+                        <Texto style={estilos.preco}>Price:{'\n'}{
                                 Intl.NumberFormat('pt-BR', {
                                 style: 'currency', currency: 'BRL'
                                 }).format(2500)
                         }</Texto> 
+                        <Texto style={estilos.earning}>Earning per Click:{'\n'}{
+                                Intl.NumberFormat('pt-BR', {
+                                style: 'currency', currency: 'BRL'
+                                }).format(Cavalos == 0 ? 0 : ((64*((Cavalos)/100)+1024)))
+                        }</Texto>
                     </View> 
             </View>  
             <View style={estilos.item}> 
-            <TouchableOpacity onPress={()=>onPressPe(Peixes)} style={{width: 75, height: 75}}>
+            <TouchableOpacity onPress={()=>onPressPe(Peixes)} style={estilos.touchable}>
             <Image source={Peixe} style = {estilos.imagem}/>
             </TouchableOpacity>
-                
                     <View style={estilos.cadaItem}>
-                        <BotaoComprar dinheiro={dinheiro} quantidade={Peixes} acao={compraPeixes} preco={5000}/>
+                        <BotaoComprar dinheiro={dinheiro} quantidade={Peixes} acao={() => compraPeixes()} preco={5000}/>
                         <Texto style={estilos.quantidade}>{Peixes}</Texto> 
-                        <Texto style={estilos.preco}>{
+                        <Texto style={estilos.preco}>Price:{'\n'}{
                                 Intl.NumberFormat('pt-BR', {
                                 style: 'currency', currency: 'BRL'
                                 }).format(5000)
                         }</Texto> 
+                        <Texto style={estilos.earning}>Earning per Click:{'\n'}{
+                                Intl.NumberFormat('pt-BR', {
+                                style: 'currency', currency: 'BRL'
+                                }).format(Peixes == 0 ? 0 : ((128*((Peixes)/100)+4096)))
+                        }</Texto>
                     </View> 
             </View>  
             <View style={estilos.item}> 
-            <TouchableOpacity onPress={()=>onPressA(Abelhas)} style={{width: 75, height: 75}}>
+            <TouchableOpacity onPress={()=>onPressA(Abelhas)} style={estilos.touchable}>
             <Image source={Abelha} style = {estilos.imagem}/>
             </TouchableOpacity>
                 
                     <View style={estilos.cadaItem}>
-                        <BotaoComprar dinheiro={dinheiro} quantidade={Abelhas} acao={compraAbelhas} preco={10000}/>
+                        <BotaoComprar dinheiro={dinheiro} quantidade={Abelhas} acao={() => compraAbelhas()} preco={10000}/>
                         <Texto style={estilos.quantidade}>{Abelhas}</Texto> 
-                        <Texto style={estilos.preco}>{
+                        <Texto style={estilos.preco}>Price:{'\n'}{
                                 Intl.NumberFormat('pt-BR', {
                                 style: 'currency', currency: 'BRL'
                                 }).format(10000)
                         }</Texto> 
+                        <Texto style={estilos.earning}>Earning per Click:{'\n'}{
+                                Intl.NumberFormat('pt-BR', {
+                                style: 'currency', currency: 'BRL'
+                                }).format(Abelhas == 0 ? 0 : ((256*((Abelhas)/100)+16376)))
+                        }</Texto>
                     </View> 
             </View>  
             <View style={estilos.item}> 
-            <TouchableOpacity onPress={()=>onPressCa(Camaroes)} style={{width: 75, height: 75}}>
+            <TouchableOpacity onPress={()=>onPressCa(Camaroes)} style={estilos.touchable}>
             <Image source={Camarao} style = {estilos.imagem}/>
             </TouchableOpacity>
-                
                     <View style={estilos.cadaItem}>
-                        <BotaoComprar dinheiro={dinheiro} quantidade={Camaroes} acao={compraCamaroes} preco={25000}/>
+                        <BotaoComprar dinheiro={dinheiro} quantidade={Camaroes} acao={() => compraCamaroes()} preco={25000}/>
                         <Texto style={estilos.quantidade}>{Camaroes}</Texto> 
-                        <Texto style={estilos.preco}>{
+                        <Texto style={estilos.preco}>Price:{'\n'}{
                                 Intl.NumberFormat('pt-BR', {
                                 style: 'currency', currency: 'BRL'
                                 }).format(25000)
                         }</Texto> 
+                        <Texto style={estilos.earning}>Earning per Click:{'\n'}{
+                                Intl.NumberFormat('pt-BR', {
+                                style: 'currency', currency: 'BRL'
+                                }).format(Camaroes == 0 ? 0 : ((256*((Camaroes)/100)+92000)))
+                        }</Texto>
                     </View> 
             </View>  
             <View style={estilos.item}> 
-            <TouchableOpacity onPress={()=>onPressGi(Girafas)} style={{width: 75, height: 75}}>
+            <TouchableOpacity onPress={()=>onPressGi(Girafas)} style={estilos.touchable}>
             <Image source={Girafa} style = {estilos.imagem}/>
             </TouchableOpacity>
                 
                     <View style={estilos.cadaItem}>
-                        <BotaoComprar dinheiro={dinheiro} quantidade={Girafas} acao={compraGirafas} preco={100000}/>
+                        <BotaoComprar dinheiro={dinheiro} quantidade={Girafas} acao={() => compraGirafas()} preco={100000}/>
                         <Texto style={estilos.quantidade}>{Girafas}</Texto> 
-                        <Texto style={estilos.preco}>{
+                        <Texto style={estilos.preco}>Price:{'\n'}{
                                 Intl.NumberFormat('pt-BR', {
                                 style: 'currency', currency: 'BRL'
                                 }).format(100000)
                         }</Texto> 
+                        <Texto style={estilos.earning}>Earning per Click:{'\n'}{
+                                Intl.NumberFormat('pt-BR', {
+                                style: 'currency', currency: 'BRL'
+                                }).format(Girafas == 0 ? 0 : ((256*((Girafas)/100)+500000)))
+                        }</Texto>
                     </View> 
             </View>
             <View style={estilos.item}> 
-            <TouchableOpacity onPress={()=>onPressL(Lontras)} style={{width: 75, height: 75}}>
-            <Image source={Lontra} style = {estilos.imagem}/>
+            <TouchableOpacity onPress={()=>onPressL(Lontras)} style={estilos.touchable}>
+                <Image source={Lontra} style = {estilos.imagem}/>
             </TouchableOpacity>
                 
                     <View style={estilos.cadaItem}>
-                        <BotaoComprar dinheiro={dinheiro} quantidade={Lontras} acao={compraLontras} preco={500000}/>
+                        <BotaoComprar dinheiro={dinheiro} quantidade={Lontras} acao={() => compraLontras()} preco={500000}/>
                         <Texto style={estilos.quantidade}>{Lontras}</Texto> 
-                        <Texto style={estilos.preco}>{
+                        <Texto style={estilos.preco}>Price:{'\n'}{
                                 Intl.NumberFormat('pt-BR', {
                                 style: 'currency', currency: 'BRL'
                                 }).format(500000)
                         }</Texto> 
+                        <Texto style={estilos.earning}>Earning per Click:{'\n'}{
+                                Intl.NumberFormat('pt-BR', {
+                                style: 'currency', currency: 'BRL'
+                                }).format(Lontras == 0 ? 0 : ((256*((Lontras)/100)+800000)))
+                        }</Texto>
                     </View> 
             </View>
             </ScrollView>
@@ -449,20 +495,28 @@ const estilos = StyleSheet.create({
     {
         backgroundColor: "#BFE1D1",
         width: 375,
-        height: 100,
+        height: 175,
         flexDirection: "column",
         marginBottom: 20,
         borderTopRightRadius: 10,
         borderTopLeftRadius: 50,
         borderBottomRightRadius: 10,
         borderBottomLeftRadius: 50,
+        borderWidth: 2,
+        borderColor: "black",
+    },
+    touchable: {
+        width: 75,
+        height: 75,
+        //backgroundColor: "blue",
+        marginTop: height*0.055,
+        marginLeft: width*0.025, 
     },
     imagem:
     {
         width: 75,
-        height: 75,     
-        marginTop: height*0.01,
-        marginLeft: width*0.025,   
+        height: 75,      
+        //backgroundColor: "grey",
     },
     cadaItem: {
         position: "absolute",
@@ -484,20 +538,36 @@ const estilos = StyleSheet.create({
         height: 30,
         fontWeight: "bold",
         marginLeft: width*0.005,
-        marginTop: height*0.07,
+        marginTop: height*0.1185,
         fontSize: 16,
     },
     preco: {
         backgroundColor: "#00FF74",
-        width: 150,
-        height: 45,
+        width: 175,
+        height: 65,
         color: "black",
         fontSize: 18,
         fontWeight: "bold",
         marginLeft: width*0.085,
-        marginTop: height*0.0325,
+        marginTop: height*0.0225,
         textAlign: "center",
-        paddingTop: 10,
+        paddingTop: 7.5,
+        borderRadius: 25, 
+        borderWidth: 2,
+        borderColor: "black",
+    },
+    earning: {
+        position: "absolute",
+        backgroundColor: "#00FF74",
+        width: 175,
+        height: 65,
+        color: "black",
+        fontSize: 18,
+        fontWeight: "bold",
+        marginLeft: width*0.2775,
+        marginTop: height*0.115,
+        textAlign: "center",
+        paddingTop: 7.5,
         borderRadius: 25, 
         borderWidth: 2,
         borderColor: "black",
