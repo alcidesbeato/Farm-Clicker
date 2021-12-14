@@ -17,20 +17,11 @@ import {
   } from 'expo-ads-admob';
 
 import estilos from './estiloLogin';
-//import UsuariosRepository from '../../db/repositories/usuarioRepository';
+import { getInstance } from '../../api';
 
-var  login ;
+var login ;
 var senha ;
 
-/*const usuario ={
-    name: "Joao Jose",
-    senha: "123123",
-    reais: 10,
-    dolars: 20,
-    fazendeiros: 30
-}*/
-//console.log(usuario);
-//UsuariosRepository.create(usuario)
 
 verificaTexto = (text)=>
 {
@@ -39,6 +30,7 @@ verificaTexto = (text)=>
 
 export default function Login(){
     const navigation = useNavigation()
+    const instance = getInstance();
 
     const [Load,setLoad] = useState(true);
     const setLogin = (text) =>
@@ -54,11 +46,32 @@ export default function Login(){
      
      useEffect(()=>{
          //Chamada de outras funções
-         //console.log(login);
+         console.log('login',login);
+         console.log('senha',senha);
          navigation.addListener('focus',()=>setLoad(!Load))
          },[Load, navigation])
+    
          
+    async function checkUser(login,senha){
+        const {data} = await (await instance).get('/api/usuarios/check', {params: login,senha})
+        console.log('data', data);
+        return data;
+    }
+    
+    function verificarLogin(){
+        const check = checkUser(login,senha);
+        if(check==null){
+            console.log('usuario nao encontrado')
+        }else{
+         console.log('ok');
+         navigation.navigate('FarmNavigator')
+        }
+     }
 
+    //on click botao login verifica se o usuario existe no banco get(passando name)
+    /*useEffect(()=>{
+        checkUser(login,senha);
+    })*/
     //   useEffect(()=>{
 
     //       async function loadAd(){
@@ -96,7 +109,7 @@ export default function Login(){
                 />
                 
                 <View style={estilos.viewBotao}>  
-                    <Botao valor='Enter' acao={()=>navigation.navigate('FarmNavigator') }  acao2={login}/>
+                    <Botao valor='Enter' acao={()=> navigation.navigate('FarmNavigator') }  acao2={login}/>
                     <Botao valor='Sign Up' style = {{marginTop:10}} acao={()=>navigation.navigate('Registrar')} />
                 </View>
             </View>

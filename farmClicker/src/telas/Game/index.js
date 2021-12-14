@@ -25,6 +25,7 @@ import Cavalo from '../../../assets/Cavalinho.png';
 import mocks from '../../mocks/animais'
 //import LoadingBar from '../../componentes/LoadingBar/index'
 import { useNavigation } from '@react-navigation/native';
+import { getInstance } from '../../api';
 
 
 
@@ -141,7 +142,14 @@ function LoadingBar({time,acao,indexaux}) {
   }
   
 export default function FarmClicker()
-{
+{   
+    const name = 'garrosm'
+    const instance = getInstance();
+    async function updateUser(name, valor){
+        const {data} = await (await instance).put(`/api/usuarios/${name}`, valor);
+        console.log('data', data);
+    }
+   
     
     const navigation = useNavigation()
     const [dinheiro,setDinheiro] = useState(1);
@@ -162,61 +170,111 @@ export default function FarmClicker()
     {
         setDinheiro(dinheiro-1);
         setGalinhas(Galinhas+1);
+        valor = {
+            quant_galinhas: Galinhas+1,
+            reais: dinheiro-1
+        }
+        //updateUser(name,valor);
     }
 
     const compraVacas = () =>
     {
         setDinheiro(dinheiro-100);
         setVacas(Vacas+1);
+        valor = {
+            quant_vaca: Vacas+1,
+            reais: dinheiro-100
+        }
+        //updateUser(name,valor);
     }
 
     const compraPorcos = () =>
     {
         setDinheiro(dinheiro-500);
         setPorcos(Porcos+1);
+        valor = {
+            quant_porco: Porcos+1,
+            reais: dinheiro-500
+        }
+        //updateUser(name,valor);
     }
 
     const compraOvelhas = () =>
     {
         setDinheiro(dinheiro-1000);
         setOvelhas(Ovelhas+1);
+        valor = {
+            quant_ovelha: Ovelhas+1,
+            reais: dinheiro-1000
+        }
+        //updateUser(name,valor);
     }
 
     const compraCavalos = () =>
     {
         setDinheiro(dinheiro-2500);
         setCavalos(Cavalos+1);
+        valor = {
+            quant_cavalo: Cavalos+1,
+            reais: dinheiro-2500
+        }
+        //updateUser(name,valor);
     }
 
     const compraPeixes = () =>
     {
         setDinheiro(dinheiro-5000);
         setPeixes(Peixes+1);
+        valor = {
+            quant_peixe: Peixes+1,
+            reais: dinheiro-5000
+        }
+        //updateUser(name,valor);
     }
 
     const compraAbelhas = () =>
     {
         setDinheiro(dinheiro-10000);
         setAbelhas(Abelhas+1);
+        valor = {
+            quant_abelha: Abelhas+1,
+            reais: dinheiro-10000
+        }
+        //updateUser(name,valor);
     }
 
     const compraCamaroes = () =>
     {
         setDinheiro(dinheiro-25000);
         setCamaroes(Camaroes+1);
+        valor = {
+            quant_camarao: Camaroes+1,
+            reais: dinheiro-25000
+        }
+        //updateUser(name,valor);
     }
 
     const compraGirafas = () =>
     {
         setDinheiro(dinheiro-100000);
         setGirafas(Girafas+1);
+        valor = {
+            quant_girafa: Girafas+1,
+            reais: dinheiro-10000
+        }
+        //updateUser(name,valor);
     }
 
     const compraLontras = () =>
     {
-    
+        
         setDinheiro(dinheiro-500000);
         setLontras(Lontras+1);
+        valor = {
+            quant_lontra: Lontras+1,
+            reais: dinheiro-500000
+        }
+        //updateUser(name,valor);
     }
     
     const onPressG = (aux) =>
