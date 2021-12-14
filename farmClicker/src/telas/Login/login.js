@@ -59,20 +59,20 @@ export default function Login(){
          },[Load, navigation])
          
 
-      useEffect(()=>{
+    //   useEffect(()=>{
 
-          async function loadAd(){
-              AdMobInterstitial.setAdUnitID('ca-app-pub-3940256099942544/1033173712');
-              InterstitalAd();
-          }
-          loadAd();
+    //       async function loadAd(){
+    //           AdMobInterstitial.setAdUnitID('ca-app-pub-3940256099942544/1033173712');
+    //           InterstitalAd();
+    //       }
+    //       loadAd();
         
-      }, []);
+    //   }, []);
         
-          async function InterstitalAd(){
-              await AdMobInterstitial.requestAdAsync({servePersonalizedAds: true});
-              await AdMobInterstitial.showAdAsync();
-          }   
+    //       async function InterstitalAd(){
+    //           await AdMobInterstitial.requestAdAsync({servePersonalizedAds: true});
+    //           await AdMobInterstitial.showAdAsync();
+    //       }   
 
     return <>
         <FundoInicial/>
@@ -102,13 +102,13 @@ export default function Login(){
             </View>
         </View>
         <View style={estilos.container}>    
-            <AdMobBanner
+            {/* <AdMobBanner
                 bannerSize="smartBannerPortrait"
                 adUnitID="ca-app-pub-3940256099942544/6300978111"
                 setTestDeviceIDAsync
                 servePersonalizedAds // true or false
                 //onDidFailToReceiveAdWithError={this.bannerError} 
-            />
+            /> */}
         </View>
         
     </>

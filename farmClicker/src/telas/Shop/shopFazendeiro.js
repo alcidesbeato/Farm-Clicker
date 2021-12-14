@@ -58,7 +58,7 @@ export default function Shop({itens}){
             <Image source={fundoSettings} style={estilos.fundoSettings}/> 
             <View style={estilos.menu}>
                 <View style={{flexDirection: "row"}}>
-                    <TouchableOpacity onPress={()=>navigation.navigate('Shop')}>
+                    <TouchableOpacity onPress={()=>navigation.navigate('Shop',{nome: 'nome'})}>
                         <Image source={dinheiroVerde} style={estilos.icones} />
                     </TouchableOpacity>
                     <TouchableOpacity style ={{marginLeft:width*0.20}}>
