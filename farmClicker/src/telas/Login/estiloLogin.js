@@ -39,14 +39,11 @@ export default StyleSheet.create({
         marginLeft: height *0.1,
         position:"absolute",
     },
-    botao: {
-        
-    },
     viewBotao: {
         flexDirection: "column",
         marginTop : width * 0.1,
     },
     container: {
         marginTop: height*0.55,
-      },
+    },
 })
