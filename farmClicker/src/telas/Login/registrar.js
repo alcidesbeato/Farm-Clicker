@@ -41,9 +41,9 @@ export default function Registrar(){
          navigation.addListener('focus',()=>setLoad(!Load))
     },[Load, navigation])
 
-    /*useEffect(()=>{
+    useEffect(()=>{
         postApi();
-    })*/
+    })
 
     const usuario = {
         name: login,

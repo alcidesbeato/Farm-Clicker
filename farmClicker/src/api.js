@@ -2,7 +2,7 @@ import  Axios from "axios";
 
 export const getInstance = async () => {
     const axiosInstance = Axios.create({
-      baseURL: 'http://21d2-177-76-235-227.ngrok.io',
+      baseURL: 'https://farm-clicker-banco.herokuapp.com',
       headers: {
         'Content-Type': 'application/json',
       },
