@@ -35,7 +35,11 @@ const width = Dimensions.get('screen').width;
 const height = Dimensions.get('screen').height;
 import mocks from '../../mocks/animais'
 
-export default function Shop({itens}){
+export default function Shop({route}){
+
+    const {nome} = route.params;
+    const nomeb = nome[0];
+    console.log(nomeb);
     const navigation = useNavigation()
     return <View style={{flex: 1}}>
         <Fundo/>

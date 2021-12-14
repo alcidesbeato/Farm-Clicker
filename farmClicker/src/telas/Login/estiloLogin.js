@@ -47,8 +47,6 @@ export default StyleSheet.create({
         marginTop : width * 0.1,
     },
     container: {
-        position: "absolute",
-        bottom: 0,
-        left: 0,
+        marginTop: height*0.55,
       },
 })

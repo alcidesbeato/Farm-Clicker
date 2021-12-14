@@ -27,7 +27,7 @@ export default function Bottom(){
                     <Texto style={estilos.texto}>Settings</Texto>
                 </View>
                 <View style={{flexDirection:"column"}}>
-                    <TouchableOpacity  onPress={()=>navigation.navigate('Shop')}>
+                    <TouchableOpacity  onPress={()=>navigation.navigate('Shop',{nome:["garros","gostoso","lucas Totao"]})}>
                         <Image source={iconeShop} style={estilos.icones}/>
                     </TouchableOpacity>
                     <Texto style={estilos.texto}>Shop</Texto>

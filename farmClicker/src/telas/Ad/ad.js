@@ -1,12 +1,14 @@
 import React from 'react'
-import { Image, View, TextInput, StyleSheet, Dimensions, TouchableOpacity} from 'react-native'
+import { Image, View, TextInput, StyleSheet, Dimensions, TouchableOpacity, useEffect} from 'react-native'
 import {
     AdMobBanner,
     AdMobInterstitial,
   } from 'expo-ads-admob';
 import botaoSair from '../../../assets/botaoSair.png'
+import { useNavigation } from '@react-navigation/native';
 
 export default function VerAd(){
+    const navigation = useNavigation()
     useEffect(()=>{
 
         async function loadAd(){

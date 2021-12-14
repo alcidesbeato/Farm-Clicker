@@ -20,7 +20,7 @@ import estilos from './estiloLogin';
 //import UsuariosRepository from '../../db/repositories/usuarioRepository';
 
 var  login ;
-var senha = "garros";
+var senha ;
 
 /*const usuario ={
     name: "Joao Jose",
@@ -37,16 +37,19 @@ verificaTexto = (text)=>
     
 }
 
-
-
 export default function Login(){
     const navigation = useNavigation()
 
     const [Load,setLoad] = useState(true);
-    setLogin = (text) =>
+    const setLogin = (text) =>
     {
         setLoad(!Load)
         login = text;
+    }
+    const setSenha = (text) =>
+    {
+        setLoad(!Load);
+        senha = text;
     }
      
      useEffect(()=>{
@@ -56,20 +59,20 @@ export default function Login(){
          },[Load, navigation])
          
 
-    useEffect(()=>{
+    // useEffect(()=>{
 
-        async function loadAd(){
-            AdMobInterstitial.setAdUnitID('ca-app-pub-3940256099942544/1033173712');
-            InterstitalAd();
-        }
-        loadAd();
+    //     async function loadAd(){
+    //         AdMobInterstitial.setAdUnitID('ca-app-pub-3940256099942544/1033173712');
+    //         InterstitalAd();
+    //     }
+    //     loadAd();
         
-    }, []);
+    // }, []);
         
-        async function InterstitalAd(){
-            await AdMobInterstitial.requestAdAsync({servePersonalizedAds: true});
-            await AdMobInterstitial.showAdAsync();
-        }   
+    //     async function InterstitalAd(){
+    //         await AdMobInterstitial.requestAdAsync({servePersonalizedAds: true});
+    //         await AdMobInterstitial.showAdAsync();
+    //     }   
 
     return <>
         <FundoInicial/>
@@ -88,15 +91,17 @@ export default function Login(){
                     placeholder='Password' 
                     secureTextEntry
                     style={[estilos.textInput,{marginTop:15}]}
+                    onChangeText = {(senha) => setSenha(senha)}
+                    value = {senha}
                 />
                 
                 <View style={estilos.viewBotao}>  
                     <Botao valor='Enter' acao={()=>navigation.navigate('FarmNavigator') }  acao2={login}/>
-                    <Botao valor='Sign Up' style = {{marginTop:10}} acao={()=>navigation.navigate('Registrar')}  />
+                    <Botao valor='Sign Up' style = {{marginTop:10}} acao={()=>navigation.navigate('Registrar')} />
                 </View>
             </View>
         </View>
-        <View style={estilos.container}>    
+        {/* <View style={estilos.container}>    
             <AdMobBanner
                 bannerSize="smartBannerPortrait"
                 adUnitID="ca-app-pub-3940256099942544/6300978111"
@@ -104,7 +109,7 @@ export default function Login(){
                 servePersonalizedAds // true or false
                 onDidFailToReceiveAdWithError={this.bannerError} 
             />
-        </View>
+        </View> */}
         
     </>
 }

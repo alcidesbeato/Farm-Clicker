@@ -18,8 +18,8 @@ const estilos = StyleSheet.create({
     fundoLogin: {
         width: "100%",
         height: "100%",
-        position: 'absolute',
-        marginTop: height*0.2,
+        position: "absolute",
+        marginTop: height*0.25,
     },
 
 })
