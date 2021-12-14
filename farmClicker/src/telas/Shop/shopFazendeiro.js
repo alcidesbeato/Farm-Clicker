@@ -68,13 +68,6 @@ export default function Shop({itens}){
                         <Image source={dolarsVerde} style={estilos.icones}/>
                     </TouchableOpacity>
                 </View>
-                {/* 
-                    <FlatList
-                    data={mocks.itens.upgradeFazendeiro}
-                    renderItem={Animais}
-                    keyExtractor={({nome}) => nome}
-                    />
-                 */}
                 <View style={estilos.opcoesCompra}>
                 <ScrollView style={{marginBottom: 50}}>
 {/*----------------------------------------------------*/}

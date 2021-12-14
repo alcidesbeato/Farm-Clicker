@@ -60,20 +60,13 @@ export default function Shop({itens}){
                     <TouchableOpacity onPress={()=>navigation.navigate('Shop')}>
                         <Image source={dinheiroVerde} style={estilos.icones}/>
                     </TouchableOpacity>
-                    <TouchableOpacity style ={{marginLeft:width*0.20}}>
-                        <Image source={fazendeiroVerde} style={estilos.icones} onPress={()=>navigation.navigate('ShopFazendeiro')}/>
+                    <TouchableOpacity style ={{marginLeft:width*0.20}} onPress={()=>navigation.navigate('ShopFazendeiro')}>
+                        <Image source={fazendeiroVerde} style={estilos.icones}/>
                     </TouchableOpacity>
                     <TouchableOpacity style = {{marginLeft:width*0.18}}>
                         <Image source={dolarsMarrom} style={estilos.icones}/>
                     </TouchableOpacity>
                 </View>
-                {/* 
-                    <FlatList
-                    data={mocks.itens.upgradeDolar}
-                    renderItem={Animais}
-                    keyExtractor={({nome}) => nome}
-                    />
-                </View> */}
                 <View style={estilos.opcoesCompra}>
                 <ScrollView style={{marginBottom: 50}}>
                 {/*----------------------------------------------------*/}

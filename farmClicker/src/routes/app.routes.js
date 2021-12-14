@@ -15,9 +15,6 @@ import ShopDolar from '../telas/Shop/shopDolar'
 import VerAd from '../telas/Ad/ad'
 import Settings from '../telas/Settings/settings'
 
-
-
-
 function FarmNavigator({login}) {
     //console.log(login);
     const verificaLogin = (login) =>

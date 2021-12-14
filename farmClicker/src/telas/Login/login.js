@@ -78,46 +78,34 @@ export default function Login(){
             <Image source={Madeira} style={estilos.madeira}/>
             <Image source={iconeLogin} style={estilos.iconeLogin}/>
             <View style={estilos.textos}>
-
-                <View style={styles.container}>    
-                    <AdMobBanner
-                        bannerSize="fullBanner"
-                        adUnitID="ca-app-pub-3940256099942544/6300978111"
-                        setTestDeviceIDAsync
-                        servePersonalizedAds // true or false
-                        onDidFailToReceiveAdWithError={this.bannerError} 
-                        />
-                </View>
-
                 <TextInput
                     placeholder='Login' 
                     style={estilos.textInput}
                     onChangeText = {(login) => login = setLogin(login)}
                     value = {login}
                 />
-            
                 <TextInput
-                    placeholder='Password' secureTextEntry style={[estilos.textInput,{marginTop:15}]}
+                    placeholder='Password' 
+                    secureTextEntry
+                    style={[estilos.textInput,{marginTop:15}]}
                 />
                 
                 <View style={estilos.viewBotao}>  
                     <Botao valor='Enter' acao={()=>navigation.navigate('FarmNavigator') }  acao2={login}/>
                     <Botao valor='Sign Up' style = {{marginTop:10}} acao={()=>navigation.navigate('Registrar')}  />
                 </View>
-
             </View>
+        </View>
+        <View style={estilos.container}>    
+            <AdMobBanner
+                bannerSize="smartBannerPortrait"
+                adUnitID="ca-app-pub-3940256099942544/6300978111"
+                setTestDeviceIDAsync
+                servePersonalizedAds // true or false
+                onDidFailToReceiveAdWithError={this.bannerError} 
+            />
         </View>
         
     </>
 }
-
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'flex-end',
-      marginTop:30,
-    },
-  });
 
