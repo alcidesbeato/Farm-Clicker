@@ -12,7 +12,7 @@ export default StyleSheet.create({
         width: 50,
         borderWidth: 2,
         borderColor: "black",
-        marginTop: height*0.01,
+        marginTop: height*0.055,
         marginLeft: width*0.065,
     },
     texto: {

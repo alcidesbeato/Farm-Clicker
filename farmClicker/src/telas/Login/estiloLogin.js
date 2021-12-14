@@ -3,8 +3,6 @@ import { StyleSheet, Dimensions} from 'react-native'
 const width = Dimensions.get('screen').width;
 const height = Dimensions.get('screen').height;
 
-
-
 export default StyleSheet.create({
     madeira: {
         position: 'absolute',
@@ -41,11 +39,11 @@ export default StyleSheet.create({
         marginLeft: height *0.1,
         position:"absolute",
     },
-    botao: {
-        
-    },
     viewBotao: {
         flexDirection: "column",
         marginTop : width * 0.1,
-    }
+    },
+    container: {
+        marginTop: height*0.55,
+    },
 })

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Image, View, TextInput, StyleSheet, Dimensions} from 'react-native'
 
 import { useNavigation } from '@react-navigation/native';
@@ -10,13 +10,78 @@ import titulo from'../../../assets/titulo.png';
 import Texto from '../../componentes/Texto'
 
 import Botao from '../../componentes/Botao/Botao'
+import { getInstance } from '../../api';
 
 const width = Dimensions.get('screen').width;
 const height = Dimensions.get('screen').height;
-
+var login;
+var senha;
 
 export default function Registrar(){
-    const navigation = useNavigation()
+    const navigation = useNavigation();
+    const instance = getInstance();
+    
+
+    const [Load,setLoad] = useState(true);
+    const setLogin = (text) =>
+    {
+        setLoad(!Load)
+        login = text;
+    }
+    const setSenha = (text) =>
+    {
+        setLoad(!Load);
+        senha = text;
+    }
+     
+    useEffect(()=>{
+         //Chamada de outras funções
+         console.log('login', login);
+         console.log('senha', senha);
+         navigation.addListener('focus',()=>setLoad(!Load))
+    },[Load, navigation])
+
+    useEffect(()=>{
+        postApi();
+    })
+
+    const usuario = {
+        name: login,
+        senha: senha,
+        quant_abelha: 0,
+        quant_camarao: 0,
+        quant_cavalo: 0,
+        quant_galinhas: 0,
+        quant_girafa: 0,
+        quant_lontra: 0,
+        quant_ovelha: 0,
+        quant_peixe: 0,
+        quant_porco: 0,
+        quant_vaca: 0,
+        reais: 0,
+        upgrade_abelha: 0,
+        upgrade_camarao: 0,
+        upgrade_cavalo: 0,
+        upgrade_galinhas: 0,
+        upgrade_girafa: 0,
+        upgrade_lontra: 0,
+        upgrade_ovelha: 0,
+        upgrade_peixe: 0,
+        upgrade_porco: 0,
+        upgrade_vaca: 0,
+    }
+    async function postApi(){
+        const {data} = await (await instance).post('/api/usuarios', usuario);
+        console.log('data', data);
+    }
+
+    
+    function criarUsuario(){
+        //postApi()
+        console.log('ok');
+        navigation.goBack()
+    }
+    
     return <>
         <FundoInicial/>
         <Image source={titulo} style={estilos.titulo}/>
@@ -25,16 +90,25 @@ export default function Registrar(){
             <View style={estilos.textos}>
                 <Texto style={estilos.createAccount}>Create Account</Texto>
                 <TextInput
-                    placeholder='Login' style={estilos.textInput}
+                    placeholder='Login' 
+                    style={estilos.textInput}
+                    onChangeText = {(login) => login = setLogin(login)}
+                    value = {login}
                 />
                 <TextInput
-                    placeholder='Password' secureTextEntry style={[estilos.textInput,{marginTop:15}]}
+                    placeholder='Password' 
+                    secureTextEntry 
+                    style={[estilos.textInput,{marginTop:15}]}
+                    onChangeText = {(senha) => setSenha(senha)}
+                    value = {senha}
                 />
                 <TextInput
-                    placeholder='Confirm Password' secureTextEntry style={[estilos.textInput,{marginTop:15}]}
+                    placeholder='Confirm Password' 
+                    secureTextEntry 
+                    style={[estilos.textInput,{marginTop:15}]}
                 />
                 <View style={estilos.viewBotao}>  
-                    <Botao valor='Register'  acao={()=>navigation.goBack()}/>
+                    <Botao valor='Register'  acao={()=>criarUsuario()}/>
                     <Botao valor='Go Back'  style = {{marginTop:10}}  acao={()=>navigation.goBack()}/>
                 </View>
             </View>
@@ -94,5 +168,3 @@ const estilos = StyleSheet.create({
         fontSize: 20,
     }
 })
-
-

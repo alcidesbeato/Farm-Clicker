@@ -4,14 +4,26 @@ import { TouchableOpacity, StyleSheet,Dimensions} from 'react-native';
 
 import Texto from '../../componentes/Texto'
 
+
 const width = Dimensions.get('screen').width;
 const height = Dimensions.get('screen').height;
 
-export default function Botao({style}) {
+export default function Botao({style,dinheiro,comprado,acao,valor}) {
 
-  return <TouchableOpacity  style={estilos.botao}>
-    <Texto style={estilos.texto}>Buy</Texto>
-  </TouchableOpacity>
+  console.log(dinheiro - valor)
+  
+  if(comprado == 0 && (dinheiro - valor) >= 0 )
+  {
+  // console.log(comprado + "foi");
+    return <TouchableOpacity onPress={()=>acao()} style={estilos.botao}>
+      <Texto style={estilos.texto}>Buy</Texto>
+    </TouchableOpacity>
+  }
+  else{
+      return <TouchableOpacity  style={estilos.botao}>
+            <Texto style={estilos.texto}>COMPRADO</Texto>
+        </TouchableOpacity>
+  }
 }
 
 const estilos = StyleSheet.create({

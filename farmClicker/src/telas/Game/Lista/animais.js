@@ -1,33 +1,47 @@
-import React,{useState}  from 'react';
+import React,{useState,useEffect}  from 'react';
 import {Image, StyleSheet, View, Dimensions} from 'react-native';
-
+import { useNavigation } from '@react-navigation/native';
 import Texto from '../../../componentes/Texto'
 import BotaoComprar from '../componentes/botaoComprar'
 import LoadingBar from '../../../componentes/LoadingBar/index'
+
+
 
 const width = Dimensions.get('screen').width;
 const height = Dimensions.get('screen').height;
 
 
-export default function Animais ({item:{nome,imagem, preco, quantidade}})
+export default function Animais ({item:{nome,imagem, preco, quantidade,time,acao}})
 {
-    const [estado,setEstado] = useState(0);
-    return <>
+    const navigation = useNavigation()
+    const [estado,setEstado] = useState(true);
+   
+
+
+  
+    
+
+     
+     
+     //console.log("aqui");
+        return <>          
           <View Key = {nome} style={estilos.item}> 
-            <Image source={imagem} style = {estilos.imagem}/>
-            <View style={estilos.cadaItem}>
-                <BotaoComprar/>
-                <Texto style={estilos.quantidade}>{quantidade}</Texto> 
-                  <LoadingBar setEstado={setEstado()}/>    
-                 <Texto style={estilos.preco}>{
-                        Intl.NumberFormat('pt-BR', {
-                        style: 'currency', currency: 'BRL'
-                        }).format(preco)
-                }</Texto> 
-            </View> 
-        </View>  
-    </> 
-}
+                <Image source={imagem} style = {estilos.imagem}/>
+                <View style={estilos.cadaItem}>
+                    <BotaoComprar dinheiro={dinheiro}/>
+                    <Texto style={estilos.quantidade}>{quantidade}</Texto> 
+                    <LoadingBar  time={time} setEstado={()=>aux()} />    
+                    <Texto style={estilos.preco}>{
+                            Intl.NumberFormat('pt-BR', {
+                            style: 'currency', currency: 'BRL'
+                            }).format(preco)
+                    }</Texto> 
+                </View> 
+            </View>  
+        </>
+
+    }
+
 
 const estilos = StyleSheet.create
 ({

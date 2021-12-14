@@ -16,12 +16,19 @@ const verificaLogin = (text) =>
 //
 export default function Botao({valor,style,acao,acao2}) {
 
-  console.log(acao2)
+  
   //console.log(acao2);
   var teste = verificaLogin(acao2);
   //acao2 == "garros"? valor=1 : valor = 2;
+  //console.log("guilherme")
   
-  
+  if(valor == 'Sign Up')
+  {
+   return( <TouchableOpacity   onPress={acao}  style={[estilos.botao,style]}>
+      <Texto style={estilos.texto}>{valor}</Texto>
+    </TouchableOpacity>)
+
+  }
   if(teste == 1){  return (
           
     <TouchableOpacity   onPress={acao}  style={[estilos.botao,style]}>
@@ -30,9 +37,9 @@ export default function Botao({valor,style,acao,acao2}) {
 
 );}
 else { 
-  return  <TouchableOpacity   style={[estilos.botao,style]}>
-  <Texto style={estilos.texto}>{valor}</Texto>
-</TouchableOpacity>
+    return  <TouchableOpacity   style={[estilos.botao,style]}>
+    <Texto style={estilos.texto}>{valor}</Texto>
+  </TouchableOpacity>
 }
 
 }
